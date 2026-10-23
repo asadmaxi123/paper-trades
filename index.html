@@ -1,0 +1,887 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>Paper Trades — Public View</title>
+    <style>
+      :root {
+        --bg: #f4f5f2;
+        --panel: #ffffff;
+        --panel-2: #eceee9;
+        --ink: #16181a;
+        --ink-soft: #4c5257;
+        --ink-faint: #7d838a;
+        --line: #dde0d9;
+        --green: #0e7c4a;
+        --green-bg: #e2f3ea;
+        --red: #c22e2e;
+        --red-bg: #fbe9e7;
+        --amber: #9a6a00;
+        --amber-bg: #f7ecd2;
+        --live: #0e7c4a;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #101312;
+          --panel: #181b1a;
+          --panel-2: #202423;
+          --ink: #eef1ec;
+          --ink-soft: #b3bab2;
+          --ink-faint: #7e877e;
+          --line: #2a2f2d;
+          --green: #3ecf8e;
+          --green-bg: #123126;
+          --red: #ff6b5e;
+          --red-bg: #3a1d1a;
+          --amber: #e8b93e;
+          --amber-bg: #33290f;
+          --live: #3ecf8e;
+        }
+      }
+
+      * { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.45;
+      }
+      .mono {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .wrap {
+        max-width: 1060px;
+        margin: 0 auto;
+        padding: clamp(18px, 4vw, 40px) clamp(14px, 4vw, 32px) 56px;
+      }
+
+      /* ---------- header ---------- */
+      .topbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 10px 20px;
+        padding-bottom: 18px;
+        border-bottom: 2px solid var(--ink);
+      }
+      h1 {
+        margin: 0;
+        font-size: clamp(26px, 5vw, 40px);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.05;
+      }
+      .sub {
+        margin: 6px 0 0;
+        color: var(--ink-soft);
+        font-size: 15px;
+        max-width: 46ch;
+      }
+      .stamp {
+        text-align: right;
+        color: var(--ink-faint);
+        font-size: 12.5px;
+        line-height: 1.5;
+      }
+      .stamp .live-dot {
+        display: inline-block;
+        width: 8px; height: 8px;
+        border-radius: 50%;
+        background: var(--live);
+        margin-right: 6px;
+        vertical-align: 1px;
+        animation: live-pulse 1.8s ease-in-out infinite;
+      }
+      @keyframes live-pulse {
+        0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(14, 124, 74, 0.35); }
+        50% { opacity: 0.65; box-shadow: 0 0 0 5px rgba(14, 124, 74, 0); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .stamp .live-dot { animation: none; }
+      }
+      .stamp .live-status { color: var(--ink-soft); font-weight: 600; }
+      .stamp .live-status.is-stale { color: var(--amber); }
+      .stamp strong { color: var(--ink-soft); font-weight: 600; }
+
+      /* ---------- scoreboard ---------- */
+      .scoreboard {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 1px;
+        background: var(--line);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        overflow: hidden;
+        margin-top: 22px;
+      }
+      .stat {
+        background: var(--panel);
+        padding: 16px 16px 14px;
+        min-width: 0;
+      }
+      .stat .label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: var(--ink-faint);
+        white-space: nowrap;
+      }
+      .stat .value {
+        margin-top: 5px;
+        font-size: clamp(19px, 2.6vw, 25px);
+        font-weight: 700;
+        line-height: 1.1;
+      }
+      .stat .detail {
+        margin-top: 3px;
+        font-size: 12.5px;
+        color: var(--ink-soft);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .pos { color: var(--green); }
+      .neg { color: var(--red); }
+
+      /* ---------- total unrealized ---------- */
+      .unrealized {
+        margin-top: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 6px 20px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-left: 4px solid var(--ink-faint);
+        border-radius: 10px;
+        padding: 15px 18px;
+      }
+      .unrealized .u-label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: var(--ink-faint);
+      }
+      .unrealized .u-detail {
+        margin-top: 3px;
+        font-size: 13px;
+        color: var(--ink-soft);
+      }
+      .unrealized .u-value {
+        font-size: clamp(26px, 4vw, 34px);
+        font-weight: 700;
+        line-height: 1.05;
+      }
+
+      /* ---------- section heading ---------- */
+      .section-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        margin: 34px 0 12px;
+      }
+      h2 {
+        margin: 0;
+        font-size: 19px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+      }
+      .section-head .count {
+        color: var(--ink-faint);
+        font-size: 13px;
+      }
+
+      /* ---------- trade table (desktop) ---------- */
+      .table-wrap {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        overflow: hidden;
+        background: var(--panel);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+      thead th {
+        text-align: left;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--ink-faint);
+        background: var(--panel-2);
+        padding: 10px 11px;
+        border-bottom: 1px solid var(--line);
+        white-space: nowrap;
+      }
+      tbody td {
+        padding: 13px 9px;
+        border-bottom: 1px solid var(--line);
+        vertical-align: middle;
+        white-space: nowrap;
+      }
+      tbody tr:last-child td { border-bottom: none; }
+      .pair { font-weight: 700; font-size: 15px; }
+      .pair small { display: block; font-weight: 500; color: var(--ink-faint); font-size: 12px; }
+      .upnl { font-weight: 700; }
+      .upnl small { display: block; font-weight: 500; color: var(--ink-faint); font-size: 11.5px; }
+
+      .side {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.07em;
+        padding: 3px 8px;
+        border-radius: 5px;
+      }
+      .side.long { color: var(--green); background: var(--green-bg); }
+      .side.short { color: var(--red); background: var(--red-bg); }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12.5px;
+        font-weight: 600;
+      }
+      .status .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--live); flex: none; }
+      .status.partial { color: var(--amber); }
+      .status.partial .dot { background: var(--amber); }
+
+      /* ---------- trade cards (mobile) ---------- */
+      .cards { display: none; }
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 15px 16px 13px;
+        margin-bottom: 10px;
+      }
+      .card-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .card-top .pair { font-size: 16px; }
+      .card-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px 16px;
+        font-size: 13.5px;
+      }
+      .card-grid .k {
+        display: block;
+        font-size: 10.5px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--ink-faint);
+        margin-bottom: 1px;
+      }
+      .card-foot {
+        margin-top: 11px;
+        padding-top: 10px;
+        border-top: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        font-size: 12.5px;
+        color: var(--ink-soft);
+      }
+
+      /* ---------- extremes ---------- */
+      .extremes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .extreme {
+        border-radius: 10px;
+        padding: 18px 20px 16px;
+        border: 1px solid var(--line);
+      }
+      .extreme.win { background: var(--green-bg); }
+      .extreme.loss { background: var(--red-bg); }
+      .extreme .label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+      .extreme.win .label { color: var(--green); }
+      .extreme.loss .label { color: var(--red); }
+      .extreme .amount {
+        margin-top: 6px;
+        font-size: clamp(26px, 4.5vw, 34px);
+        font-weight: 700;
+        line-height: 1.05;
+      }
+      .extreme.win .amount { color: var(--green); }
+      .extreme.loss .amount { color: var(--red); }
+      .extreme .who {
+        margin-top: 5px;
+        font-size: 13.5px;
+        color: var(--ink-soft);
+      }
+
+      footer {
+        margin-top: 36px;
+        padding-top: 14px;
+        border-top: 1px solid var(--line);
+        color: var(--ink-faint);
+        font-size: 12.5px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 18px;
+        justify-content: space-between;
+      }
+
+      @media (max-width: 900px) {
+        .scoreboard { grid-template-columns: repeat(3, 1fr); }
+        table { font-size: 13px; }
+        thead th { padding: 9px 7px; }
+        tbody td { padding: 11px 7px; }
+      }
+      @media (max-width: 680px) {
+        .table-wrap { display: none; }
+        .cards { display: block; }
+        .stamp { text-align: left; }
+      }
+      @media (max-width: 480px) {
+        .scoreboard { grid-template-columns: repeat(2, 1fr); }
+        .extremes { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="topbar">
+        <div>
+          <h1>Running Paper Trades</h1>
+          <p class="sub">Open positions from a simulated $1,000 paper-trading account, marked against real market prices.</p>
+        </div>
+        <div class="stamp">
+          <span class="live-dot"></span><strong>6 trades running · Live</strong><br />
+          <span class="live-status" id="live-status">Connecting to live prices…</span><br />
+          <span id="last-updated">Last snapshot · Fri 23 Oct 2026, 8:50 PM PKT</span>
+        </div>
+      </header>
+
+      <!-- Scoreboard -->
+      <section class="scoreboard" aria-label="Account summary">
+        <div class="stat">
+          <div class="label">Record</div>
+          <div class="value mono">23W – 10L</div>
+          <div class="detail">33 closed trades</div>
+        </div>
+        <div class="stat">
+          <div class="label">Total P&amp;L</div>
+          <div class="value mono pos">+$14.47</div>
+          <div class="detail">on a $1,000 start</div>
+        </div>
+        <div class="stat">
+          <div class="label">Free balance</div>
+          <div class="value mono">$1000.34</div>
+          <div class="detail">cash not in trades</div>
+        </div>
+        <div class="stat">
+          <div class="label">Margin running</div>
+          <div class="value mono">$18.00</div>
+          <div class="detail">across 6 open trades</div>
+        </div>
+        <div class="stat">
+          <div class="label">Biggest win</div>
+          <div class="value mono pos">+$9.00</div>
+          <div class="detail">BMT/USDT</div>
+        </div>
+        <div class="stat">
+          <div class="label">Biggest loss</div>
+          <div class="value mono neg">−$9.32</div>
+          <div class="detail">PHA/USDT</div>
+        </div>
+      </section>
+
+      <!-- Total unrealized -->
+      <section class="unrealized" id="unrealized-box" aria-label="Total unrealized profit and loss">
+        <div>
+          <div class="u-label">Total unrealized P&amp;L — open trades</div>
+          <div class="u-detail" id="unrealized-detail">Updating from live prices… · realized +$14.47</div>
+        </div>
+        <div class="u-value mono neg" id="total-unrealized">−$0.95</div>
+      </section>
+
+      <!-- Running trades -->
+      <div class="section-head">
+        <h2>Open trades</h2>
+        <span class="count">All times PKT · leverage 30× on every position · unrealized recomputed live from the current price · auto-refreshes every 10s</span>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Pair</th>
+              <th>Side</th>
+              <th>Entry</th>
+              <th>Now</th>
+              <th>Take profit</th>
+              <th>Stop loss</th>
+              <th>Margin</th>
+              <th>Unrealized P&amp;L</th>
+              <th>Opened</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>            <tr>
+              <td class="pair">TON/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td class="mono">$$1.6000</td>
+              <td class="mono">$$1.6000</td>
+              <td class="mono">$$1.5680</td>
+              <td class="mono">$$1.6320</td>
+              <td class="mono">$2.00</td>
+              <td class="mono upnl ">+$0.00<small>+0.0% on margin</small></td>
+              <td class="mono">10:12 AM</td>
+              <td><span class="status"><span class="dot"></span>Running</span></td>
+            </tr>
+            <tr>
+              <td class="pair">MC/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td class="mono">$$0.4861</td>
+              <td class="mono">$$0.4861</td>
+              <td class="mono">$$0.4764</td>
+              <td class="mono">$$0.4958</td>
+              <td class="mono">$2.00</td>
+              <td class="mono upnl ">+$0.00<small>+0.0% on margin</small></td>
+              <td class="mono">10:12 AM</td>
+              <td><span class="status"><span class="dot"></span>Running</span></td>
+            </tr>
+            <tr>
+              <td class="pair">BNB/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td class="mono">$$745.56</td>
+              <td class="mono">$$748.89</td>
+              <td class="mono">$$730.65</td>
+              <td class="mono">$$760.47</td>
+              <td class="mono">$2.00</td>
+              <td class="mono upnl neg">−$0.13<small>−6.7% on margin</small></td>
+              <td class="mono">1:39 PM</td>
+              <td><span class="status"><span class="dot"></span>Running</span></td>
+            </tr>
+            <tr>
+              <td class="pair">AI/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td class="mono">$$0.0203</td>
+              <td class="mono">$$0.0202</td>
+              <td class="mono">$$0.0199</td>
+              <td class="mono">$$0.0201</td>
+              <td class="mono">$2.00</td>
+              <td class="mono upnl pos">+$0.15<small>+7.4% on margin</small></td>
+              <td class="mono">2:11 PM</td>
+              <td><span class="status"><span class="dot"></span>Running</span></td>
+            </tr>
+            <tr>
+              <td class="pair">KERNEL/USDT<small>just opened</small></td>
+              <td><span class="side short">SHORT</span></td>
+              <td class="mono">$$0.0503</td>
+              <td class="mono">$$0.0506</td>
+              <td class="mono">$$0.0493</td>
+              <td class="mono">$$0.0513</td>
+              <td class="mono">$5.00</td>
+              <td class="mono upnl neg">−$0.89<small>−17.9% on margin</small></td>
+              <td class="mono">8:28 PM</td>
+              <td><span class="status"><span class="dot"></span>Running</span></td>
+            </tr>
+            <tr>
+              <td class="pair">DODO/USDT<small>just opened</small></td>
+              <td><span class="side short">SHORT</span></td>
+              <td class="mono">$$0.0215</td>
+              <td class="mono">$$0.0215</td>
+              <td class="mono">$$0.0210</td>
+              <td class="mono">$$0.0219</td>
+              <td class="mono">$5.00</td>
+              <td class="mono upnl neg">−$0.07<small>−1.4% on margin</small></td>
+              <td class="mono">8:31 PM</td>
+              <td><span class="status"><span class="dot"></span>Running</span></td>
+            </tr></tbody>
+        </table>
+      </div>
+
+      <!-- Mobile cards -->
+      <div class="cards">
+        <div class="card">
+          <div class="card-top">
+            <span class="pair">TON/USDT</span>
+            <span class="side short">SHORT</span>
+          </div>
+          <div class="card-grid">
+            <div><span class="k">Entry</span><span class="mono">$$1.6000</span></div>
+            <div><span class="k">Margin</span><span class="mono">$2.00</span></div>
+            <div><span class="k">Take profit</span><span class="mono">$$1.5680</span></div>
+            <div><span class="k">Stop loss</span><span class="mono">$$1.6320</span></div>
+            <div><span class="k">Now</span><span class="mono">$$1.6000</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono "><strong>+$0.00</strong> · +0.0%</span></div>
+          </div>
+          <div class="card-foot">
+            <span>Opened 10:12 AM</span>
+            <span class="status"><span class="dot"></span>Running</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <span class="pair">MC/USDT</span>
+            <span class="side short">SHORT</span>
+          </div>
+          <div class="card-grid">
+            <div><span class="k">Entry</span><span class="mono">$$0.4861</span></div>
+            <div><span class="k">Margin</span><span class="mono">$2.00</span></div>
+            <div><span class="k">Take profit</span><span class="mono">$$0.4764</span></div>
+            <div><span class="k">Stop loss</span><span class="mono">$$0.4958</span></div>
+            <div><span class="k">Now</span><span class="mono">$$0.4861</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono "><strong>+$0.00</strong> · +0.0%</span></div>
+          </div>
+          <div class="card-foot">
+            <span>Opened 10:12 AM</span>
+            <span class="status"><span class="dot"></span>Running</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <span class="pair">BNB/USDT</span>
+            <span class="side short">SHORT</span>
+          </div>
+          <div class="card-grid">
+            <div><span class="k">Entry</span><span class="mono">$$745.56</span></div>
+            <div><span class="k">Margin</span><span class="mono">$2.00</span></div>
+            <div><span class="k">Take profit</span><span class="mono">$$730.65</span></div>
+            <div><span class="k">Stop loss</span><span class="mono">$$760.47</span></div>
+            <div><span class="k">Now</span><span class="mono">$$748.89</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono neg"><strong>−$0.13</strong> · −6.7%</span></div>
+          </div>
+          <div class="card-foot">
+            <span>Opened 1:39 PM</span>
+            <span class="status"><span class="dot"></span>Running</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <span class="pair">AI/USDT</span>
+            <span class="side short">SHORT</span>
+          </div>
+          <div class="card-grid">
+            <div><span class="k">Entry</span><span class="mono">$$0.0203</span></div>
+            <div><span class="k">Margin</span><span class="mono">$2.00</span></div>
+            <div><span class="k">Take profit</span><span class="mono">$$0.0199</span></div>
+            <div><span class="k">Stop loss</span><span class="mono">$$0.0201</span></div>
+            <div><span class="k">Now</span><span class="mono">$$0.0202</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$0.15</strong> · +7.4%</span></div>
+          </div>
+          <div class="card-foot">
+            <span>Opened 2:11 PM</span>
+            <span class="status"><span class="dot"></span>Running</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <span class="pair">KERNEL/USDT</span>
+            <span class="side short">SHORT</span>
+          </div>
+          <div class="card-grid">
+            <div><span class="k">Entry</span><span class="mono">$$0.0503</span></div>
+            <div><span class="k">Margin</span><span class="mono">$5.00</span></div>
+            <div><span class="k">Take profit</span><span class="mono">$$0.0493</span></div>
+            <div><span class="k">Stop loss</span><span class="mono">$$0.0513</span></div>
+            <div><span class="k">Now</span><span class="mono">$$0.0506</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono neg"><strong>−$0.89</strong> · −17.9%</span></div>
+          </div>
+          <div class="card-foot">
+            <span>Opened 8:28 PM</span>
+            <span class="status"><span class="dot"></span>Running</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <span class="pair">DODO/USDT</span>
+            <span class="side short">SHORT</span>
+          </div>
+          <div class="card-grid">
+            <div><span class="k">Entry</span><span class="mono">$$0.0215</span></div>
+            <div><span class="k">Margin</span><span class="mono">$5.00</span></div>
+            <div><span class="k">Take profit</span><span class="mono">$$0.0210</span></div>
+            <div><span class="k">Stop loss</span><span class="mono">$$0.0219</span></div>
+            <div><span class="k">Now</span><span class="mono">$$0.0215</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono neg"><strong>−$0.07</strong> · −1.4%</span></div>
+          </div>
+          <div class="card-foot">
+            <span>Opened 8:31 PM</span>
+            <span class="status"><span class="dot"></span>Running</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Extremes -->
+      <div class="section-head">
+        <h2>Best &amp; worst so far</h2>
+        <span class="count">Closed trades only</span>
+      </div>
+      <div class="extremes">
+        <div class="extreme win">
+          <div class="label">Biggest win</div>
+          <div class="amount mono">+$9.00</div>
+          <div class="who">BMT/USDT short — TP hit · 600.0</div>
+        </div>
+        <div class="extreme loss">
+          <div class="label">Biggest loss</div>
+          <div class="amount mono">−$9.32</div>
+          <div class="who">PHA/USDT long — SL hit (-2.5%) · 3360.0</div>
+        </div>
+      </div>
+
+      <footer>
+        <span>Paper trading — simulated funds, real market prices. No real orders are placed.</span>
+        <span id="footer-note">Live marks from Binance (data-api.binance.vision), refreshed in your browser every 10 seconds. If a live price can't be reached, that trade keeps its last shown mark.</span>
+      </footer>
+    </div>
+    <script>
+      (function () {
+        var LEVERAGE = 30;
+        var REALIZED = 14.47;
+        var REFRESH_MS = 10000;
+        var MINUS = "\u2212";
+
+        var statusEl = document.getElementById("live-status");
+        var updatedEl = document.getElementById("last-updated");
+        var totalEl = document.getElementById("total-unrealized");
+        var detailEl = document.getElementById("unrealized-detail");
+        var boxEl = document.getElementById("unrealized-box");
+
+        function parseNum(text) {
+          var n = parseFloat(String(text).replace(/[^0-9.\-]/g, ""));
+          return isNaN(n) ? null : n;
+        }
+        function decimalsOf(text) {
+          var clean = String(text).replace(/[^0-9.]/g, "");
+          var parts = clean.split(".");
+          return parts.length > 1 ? parts[1].length : 0;
+        }
+        function fmtPrice(price, decimals) {
+          return "$" + price.toFixed(decimals);
+        }
+        function fmtMoney(v) {
+          if (v > 0.004) return "+$" + v.toFixed(2);
+          if (v < -0.004) return MINUS + "$" + Math.abs(v).toFixed(2);
+          return "$0.00";
+        }
+        function fmtPct(pct) {
+          if (pct > 0.04) return "+" + pct.toFixed(1) + "% on margin";
+          if (pct < -0.04) return MINUS + Math.abs(pct).toFixed(1) + "% on margin";
+          return "0.0% on margin";
+        }
+        function fmtPctShort(pct) {
+          if (pct > 0.04) return "+" + pct.toFixed(1) + "%";
+          if (pct < -0.04) return MINUS + Math.abs(pct).toFixed(1) + "%";
+          return "0.0%";
+        }
+        function signClass(v) {
+          if (v > 0.004) return "pos";
+          if (v < -0.004) return "neg";
+          return "";
+        }
+
+        // ---- Read the trades already rendered on the page ----
+        var rows = Array.prototype.slice.call(document.querySelectorAll("tbody tr"));
+        var cards = Array.prototype.slice.call(document.querySelectorAll(".cards .card"));
+        var trades = rows.map(function (row, i) {
+          var cells = row.querySelectorAll("td");
+          var pairText = cells[0].textContent || "";
+          var m = pairText.match(/([A-Z0-9]+)\s*\/\s*USDT/);
+          var sideEl = row.querySelector(".side");
+          var entryText = cells[2].textContent.trim();
+          var nowText = cells[3].textContent.trim();
+          var lastPrice = parseNum(nowText);
+          var entry = parseNum(entryText);
+          var margin = parseNum(cells[6].textContent);
+          var isLong = sideEl && sideEl.classList.contains("long");
+          var trade = {
+            symbol: m ? m[1] : "",
+            isLong: !!isLong,
+            entry: entry,
+            margin: margin,
+            decimals: Math.max(decimalsOf(entryText), 2),
+            lastPrice: lastPrice,
+            lastPnl: null,
+            lastPct: null,
+            nowCell: cells[3],
+            pnlCell: cells[7],
+            card: cards[i] || null,
+            cardNowEl: null,
+            cardPnlEl: null
+          };
+          if (trade.entry && lastPrice != null && trade.margin) {
+            var move = trade.isLong
+              ? (lastPrice - trade.entry) / trade.entry
+              : (trade.entry - lastPrice) / trade.entry;
+            trade.lastPnl = move * LEVERAGE * trade.margin;
+            trade.lastPct = move * LEVERAGE * 100;
+          }
+          if (trade.card) {
+            var gridDivs = trade.card.querySelectorAll(".card-grid > div");
+            if (gridDivs[4]) trade.cardNowEl = gridDivs[4].querySelector(".mono");
+            if (gridDivs[5]) trade.cardPnlEl = gridDivs[5].querySelector(".mono");
+          }
+          return trade;
+        });
+
+        function renderTrade(trade) {
+          if (trade.lastPrice == null || trade.lastPnl == null) return;
+          var priceText = fmtPrice(trade.lastPrice, trade.decimals);
+          trade.nowCell.textContent = priceText;
+          // Table P&L cell: amount + small pct line
+          trade.pnlCell.textContent = "";
+          trade.pnlCell.className = "mono upnl " + signClass(trade.lastPnl);
+          var amt = document.createTextNode(fmtMoney(trade.lastPnl));
+          var small = document.createElement("small");
+          small.textContent = fmtPct(trade.lastPct);
+          trade.pnlCell.appendChild(amt);
+          trade.pnlCell.appendChild(small);
+          // Mobile card
+          if (trade.cardNowEl) trade.cardNowEl.textContent = priceText;
+          if (trade.cardPnlEl) {
+            trade.cardPnlEl.className = "mono " + signClass(trade.lastPnl);
+            trade.cardPnlEl.textContent = "";
+            var strong = document.createElement("strong");
+            strong.textContent = fmtMoney(trade.lastPnl);
+            trade.cardPnlEl.appendChild(strong);
+            trade.cardPnlEl.appendChild(
+              document.createTextNode(" \u00B7 " + fmtPctShort(trade.lastPct))
+            );
+          }
+        }
+
+        function renderTotal(liveCount) {
+          var total = 0, profit = 0, down = 0, flat = 0;
+          trades.forEach(function (t) {
+            if (t.lastPnl == null) return;
+            total += t.lastPnl;
+            if (t.lastPnl > 0.004) profit++;
+            else if (t.lastPnl < -0.004) down++;
+            else flat++;
+          });
+          if (totalEl) {
+            totalEl.textContent = fmtMoney(total);
+            totalEl.className = "u-value mono " + signClass(total);
+          }
+          if (boxEl) {
+            boxEl.style.borderLeftColor =
+              total > 0.004 ? "var(--green)" : total < -0.004 ? "var(--red)" : "var(--ink-faint)";
+          }
+          if (detailEl) {
+            var combined = REALIZED + total;
+            detailEl.textContent =
+              profit + " of " + trades.length + " trades in profit, " + down + " down, " + flat +
+              " flat \u00B7 live Binance marks (" + liveCount + "/" + trades.length + " priced live)" +
+              " \u00B7 realized +$" + REALIZED.toFixed(2) + ", so " + fmtMoney(combined) + " counting open trades";
+          }
+          return total;
+        }
+
+        function fmtTimePKT(d) {
+          try {
+            return d.toLocaleTimeString("en-GB", {
+              timeZone: "Asia/Karachi",
+              hour: "numeric", minute: "2-digit", second: "2-digit", hour12: true
+            }).toUpperCase() + " PKT";
+          } catch (e) {
+            return d.toLocaleTimeString() + " PKT";
+          }
+        }
+
+        var refreshing = false;
+        function refresh() {
+          if (refreshing) return;
+          refreshing = true;
+          if (statusEl) {
+            statusEl.textContent = "Updating live prices\u2026";
+            statusEl.classList.remove("is-stale");
+          }
+          var fetches = trades.map(function (trade) {
+            if (!trade.symbol) return Promise.resolve(null);
+            return fetch(
+              "https://data-api.binance.vision/api/v3/ticker/price?symbol=" +
+                encodeURIComponent(trade.symbol + "USDT"),
+              { cache: "no-store" }
+            )
+              .then(function (r) {
+                if (!r.ok) throw new Error("bad status");
+                return r.json();
+              })
+              .then(function (data) {
+                var p = parseFloat(data && data.price);
+                return isNaN(p) ? null : { trade: trade, price: p };
+              })
+              .catch(function () { return null; });
+          });
+          Promise.all(fetches).then(function (results) {
+            refreshing = false;
+            var liveCount = 0;
+            results.forEach(function (res) {
+              if (!res) return;
+              liveCount++;
+              var t = res.trade;
+              t.lastPrice = res.price;
+              var move = t.isLong
+                ? (res.price - t.entry) / t.entry
+                : (t.entry - res.price) / t.entry;
+              t.lastPnl = move * LEVERAGE * t.margin;
+              t.lastPct = move * LEVERAGE * 100;
+              renderTrade(t);
+            });
+            renderTotal(liveCount);
+            var now = new Date();
+            if (liveCount > 0) {
+              if (statusEl) {
+                statusEl.textContent = "Live \u00B7 Binance prices";
+                statusEl.classList.remove("is-stale");
+              }
+              if (updatedEl) updatedEl.textContent = "Updated " + fmtTimePKT(now) + " \u00B7 refreshes every 10s";
+            } else {
+              if (statusEl) {
+                statusEl.textContent = "Live prices unreachable \u2014 showing last marks, retrying\u2026";
+                statusEl.classList.add("is-stale");
+              }
+              if (updatedEl) updatedEl.textContent = "Could not reach Binance at " + fmtTimePKT(now) + " \u00B7 will retry in 10s";
+            }
+          });
+        }
+
+        refresh();
+        setInterval(refresh, REFRESH_MS);
+        document.addEventListener("visibilitychange", function () {
+          if (!document.hidden) refresh();
+        });
+      })();
+    </script>
+  </body>
+</html>
