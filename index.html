@@ -367,6 +367,14 @@
         .scoreboard { grid-template-columns: repeat(2, 1fr); }
         .extremes { grid-template-columns: 1fr; }
       }
+      .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: .04em; }
+      .badge.tp { color: var(--green); background: var(--green-bg); }
+      .badge.sl { color: var(--red); background: var(--red-bg); }
+      .badge.man { color: var(--muted); background: var(--surface-2, rgba(127,127,127,.14)); }
+      .filters { display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 0 12px; }
+      .filter-btn { border: 1px solid var(--border); background: transparent; color: var(--muted); border-radius: 999px; padding: 5px 14px; font-size: 12.5px; font-weight: 600; cursor: pointer; }
+      .filter-btn.active { color: var(--text); border-color: var(--text); }
+      td.reason { max-width: 340px; white-space: normal; color: var(--muted); font-size: 12.5px; }
     </style>
   </head>
   <body>
@@ -379,7 +387,7 @@
         <div class="stamp">
           <span class="live-dot"></span><strong>6 trades running · Live</strong><br />
           <span class="live-status" id="live-status">Connecting to live prices…</span><br />
-          <span id="last-updated">Last snapshot · Sat 24 Oct 2026, 12:33 AM PKT</span>
+          <span id="last-updated">Last snapshot · Sat 24 Oct 2026, 12:35 AM PKT</span>
         </div>
       </header>
 
@@ -438,7 +446,7 @@
           <div class="u-label">Total unrealized P&amp;L — open trades</div>
           <div class="u-detail" id="unrealized-detail">Updating from live prices… · realized +$9.80</div>
         </div>
-        <div class="u-value mono neg" id="total-unrealized">−$0.41</div>
+        <div class="u-value mono neg" id="total-unrealized">−$0.25</div>
       </section>
 
       <!-- Running trades -->
@@ -467,11 +475,11 @@
               <td class="pair">BNB/USDT</td>
               <td><span class="side short">SHORT</span></td>
               <td class="mono">$745.56</td>
-              <td class="mono">$741.79</td>
+              <td class="mono">$742.04</td>
               <td class="mono">$730.65</td>
               <td class="mono">$760.47</td>
               <td class="mono">$2.00</td>
-              <td class="mono upnl pos">+$0.15<small>+7.6% on margin</small></td>
+              <td class="mono upnl pos">+$0.14<small>+7.1% on margin</small></td>
               <td class="mono">1:39 PM</td>
               <td><span class="status"><span class="dot"></span>Running</span></td>
             </tr>
@@ -491,7 +499,7 @@
               <td class="pair">BOME/USDT</td>
               <td><span class="side short">SHORT</span></td>
               <td class="mono">$0.0006410</td>
-              <td class="mono">$0.0006348</td>
+              <td class="mono">$0.0006347</td>
               <td class="mono">$0.0006346</td>
               <td class="mono">$0.0006410</td>
               <td class="mono">$5.00</td>
@@ -531,7 +539,7 @@
               <td class="mono">$0.0178</td>
               <td class="mono">$0.0183</td>
               <td class="mono">$5.00</td>
-              <td class="mono upnl neg">−$0.50<small>−10.0% on margin</small></td>
+              <td class="mono upnl neg">−$0.33<small>−6.7% on margin</small></td>
               <td class="mono">11:42 PM</td>
               <td><span class="status"><span class="dot"></span>Running</span></td>
             </tr></tbody>
@@ -550,8 +558,8 @@
             <div><span class="k">Margin</span><span class="mono">$2.00</span></div>
             <div><span class="k">Take profit</span><span class="mono">$730.65</span></div>
             <div><span class="k">Stop loss</span><span class="mono">$760.47</span></div>
-            <div><span class="k">Now</span><span class="mono">$741.79</span></div>
-            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$0.15</strong> · +7.6%</span></div>
+            <div><span class="k">Now</span><span class="mono">$742.04</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$0.14</strong> · +7.1%</span></div>
           </div>
           <div class="card-foot">
             <span>Opened 1:39 PM</span>
@@ -588,7 +596,7 @@
             <div><span class="k">Margin</span><span class="mono">$5.00</span></div>
             <div><span class="k">Take profit</span><span class="mono">$0.0006346</span></div>
             <div><span class="k">Stop loss</span><span class="mono">$0.0006410</span></div>
-            <div><span class="k">Now</span><span class="mono">$0.0006348</span></div>
+            <div><span class="k">Now</span><span class="mono">$0.0006347</span></div>
             <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$0.15</strong> · +2.9%</span></div>
           </div>
           <div class="card-foot">
@@ -646,7 +654,7 @@
             <div><span class="k">Take profit</span><span class="mono">$0.0178</span></div>
             <div><span class="k">Stop loss</span><span class="mono">$0.0183</span></div>
             <div><span class="k">Now</span><span class="mono">$0.0180</span></div>
-            <div><span class="k">Unrealized P&amp;L</span><span class="mono neg"><strong>−$0.50</strong> · −10.0%</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono neg"><strong>−$0.33</strong> · −6.7%</span></div>
           </div>
           <div class="card-foot">
             <span>Opened 11:42 PM</span>
@@ -672,6 +680,470 @@
           <div class="amount mono">−$9.32</div>
           <div class="who">PHA/USDT long — SL hit (-2.5%) · 3360.0</div>
         </div>
+      </div>
+
+      <!-- Strategy breakdown -->
+      <div class="section-head">
+        <h2>Strategy breakdown</h2>
+        <span class="count">Closed trades by strategy, with what is still running</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Strategy</th>
+              <th>Open</th>
+              <th>Closed</th>
+              <th>Record</th>
+              <th>Realized P&amp;L</th>
+            </tr>
+          </thead>
+          <tbody>            <tr>
+              <td class="pair">Warning shorts</td>
+              <td class="mono">6</td>
+              <td class="mono">26</td>
+              <td class="mono">16W – 8L</td>
+              <td class="mono pos">+$11.09</td>
+            </tr>
+            <tr>
+              <td class="pair">Old RSI-55</td>
+              <td class="mono">0</td>
+              <td class="mono">1</td>
+              <td class="mono">1W – 0L</td>
+              <td class="mono pos">+$7.50</td>
+            </tr>
+            <tr>
+              <td class="pair">Early entry</td>
+              <td class="mono">0</td>
+              <td class="mono">1</td>
+              <td class="mono">1W – 0L</td>
+              <td class="mono pos">+$3.02</td>
+            </tr>
+            <tr>
+              <td class="pair">RSI band shorts</td>
+              <td class="mono">0</td>
+              <td class="mono">1</td>
+              <td class="mono">1W – 0L</td>
+              <td class="mono pos">+$2.09</td>
+            </tr>
+            <tr>
+              <td class="pair">Old divergence</td>
+              <td class="mono">0</td>
+              <td class="mono">1</td>
+              <td class="mono">0W – 1L</td>
+              <td class="mono neg">−$0.71</td>
+            </tr>
+            <tr>
+              <td class="pair">Gainers</td>
+              <td class="mono">0</td>
+              <td class="mono">2</td>
+              <td class="mono">1W – 1L</td>
+              <td class="mono neg">−$1.96</td>
+            </tr>
+            <tr>
+              <td class="pair">Old early entry</td>
+              <td class="mono">0</td>
+              <td class="mono">9</td>
+              <td class="mono">6W – 3L</td>
+              <td class="mono neg">−$11.23</td>
+            </tr></tbody>
+        </table>
+      </div>
+
+      <!-- Closed trades -->
+      <div class="section-head">
+        <h2>Closed trades</h2>
+        <span class="count">Newest first · tap a filter to show one exit type</span>
+      </div>
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="tp">Closed at TP</button>
+        <button class="filter-btn" data-filter="sl">Closed at SL</button>
+        <button class="filter-btn" data-filter="man">Closed manually</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Pair</th>
+              <th>Side</th>
+              <th>Strategy</th>
+              <th>Exit</th>
+              <th>Reason</th>
+              <th>Duration</th>
+              <th>P&amp;L</th>
+            </tr>
+          </thead>
+          <tbody>            <tr data-cat="man">
+              <td class="pair">DOGE/USDT</td>
+              <td><span class="side long">LONG</span></td>
+              <td>Old divergence</td>
+              <td><span class="badge man">MANUAL</span></td>
+              <td class="reason">closed by user order - was in loss (user rule 2026-10-24)</td>
+              <td class="mono">24m</td>
+              <td class="mono neg">−$0.71</td>
+            </tr>
+            <tr data-cat="sl">
+              <td class="pair">ERA/USDT</td>
+              <td><span class="side long">LONG</span></td>
+              <td>Gainers</td>
+              <td><span class="badge sl">SL</span></td>
+              <td class="reason">SL hit (-2.0%)</td>
+              <td class="mono">36m</td>
+              <td class="mono neg">−$3.44</td>
+            </tr>
+            <tr data-cat="tp">
+              <td class="pair">INIT/USDT</td>
+              <td><span class="side long">LONG</span></td>
+              <td>Gainers</td>
+              <td><span class="badge tp">TP</span></td>
+              <td class="reason">runner stop at entry after the 90% TP1 bank (breakeven)</td>
+              <td class="mono">6m</td>
+              <td class="mono pos">+$1.48</td>
+            </tr>
+            <tr data-cat="tp">
+              <td class="pair">BMT/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge tp">TP</span></td>
+              <td class="reason">30% profit lock — price returned to the +30% profit level</td>
+              <td class="mono">8m</td>
+              <td class="mono pos">+$1.13</td>
+            </tr>
+            <tr data-cat="sl">
+              <td class="pair">KERNEL/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge sl">SL</span></td>
+              <td class="reason">SL hit (+2.2%) — 5m candle closed above SL (STRONG candle-close rule)</td>
+              <td class="mono">37m</td>
+              <td class="mono neg">−$3.28</td>
+            </tr>
+            <tr data-cat="man">
+              <td class="pair">MC/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge man">MANUAL</span></td>
+              <td class="reason">closed by user order at $0.4861</td>
+              <td class="mono">10h 46m</td>
+              <td class="mono ">+$0.00</td>
+            </tr>
+            <tr data-cat="man">
+              <td class="pair">TON/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge man">MANUAL</span></td>
+              <td class="reason">closed by user order at $1.6</td>
+              <td class="mono">10h 46m</td>
+              <td class="mono ">+$0.00</td>
+            </tr>
+            <tr data-cat="tp">
+              <td class="pair">AI/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge tp">TP</span></td>
+              <td class="reason">30% profit lock — price returned to the +30% profit level</td>
+              <td class="mono">6h 34m</td>
+              <td class="mono pos">+$0.15</td>
+            </tr>
+            <tr data-cat="tp">
+              <td class="pair">MSTRB/USDT</td>
+              <td><span class="side long">LONG</span></td>
+              <td>Old RSI-55</td>
+              <td><span class="badge tp">TP</span></td>
+              <td class="reason">TP hit — price rose 2% (profit target)</td>
+              <td class="mono">14m</td>
+              <td class="mono pos">+$7.50</td>
+            </tr>
+            <tr data-cat="tp">
+              <td class="pair">ARKM/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge tp">TP</span></td>
+              <td class="reason">30% profit lock — price returned to the +30% profit level</td>
+              <td class="mono">2h 33m</td>
+              <td class="mono pos">+$0.70</td>
+            </tr>
+            <tr data-cat="tp">
+              <td class="pair">SEI/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge tp">TP</span></td>
+              <td class="reason">30% profit lock — price returned to the +30% profit level</td>
+              <td class="mono">3h 46m</td>
+              <td class="mono neg">−$0.43</td>
+            </tr>
+            <tr data-cat="tp">
+              <td class="pair">RUNE/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge tp">TP</span></td>
+              <td class="reason">30% profit lock — price returned to the +30% profit level</td>
+              <td class="mono">4h 19m</td>
+              <td class="mono neg">−$2.12</td>
+            </tr>
+            <tr data-cat="tp">
+              <td class="pair">ADA/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge tp">TP</span></td>
+              <td class="reason">30% profit lock — price returned to the +30% profit level</td>
+              <td class="mono">6h 49m</td>
+              <td class="mono neg">−$0.12</td>
+            </tr>
+            <tr data-cat="tp">
+              <td class="pair">LTC/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge tp">TP</span></td>
+              <td class="reason">30% profit lock — price returned to the +30% profit level</td>
+              <td class="mono">3h 02m</td>
+              <td class="mono pos">+$3.65</td>
+            </tr>
+            <tr data-cat="sl">
+              <td class="pair">PARTI/USDT</td>
+              <td><span class="side long">LONG</span></td>
+              <td>Old early entry</td>
+              <td><span class="badge sl">SL</span></td>
+              <td class="reason">SL hit (0%) — 5m candle closed below SL (STRONG candle-close rule)</td>
+              <td class="mono">4h 46m</td>
+              <td class="mono neg">−$1.36</td>
+            </tr>
+            <tr data-cat="sl">
+              <td class="pair">MSTRB/USDT</td>
+              <td><span class="side long">LONG</span></td>
+              <td>Old early entry</td>
+              <td><span class="badge sl">SL</span></td>
+              <td class="reason">SL hit (-2%) — 5m candle closed below SL (STRONG candle-close rule)</td>
+              <td class="mono">5h 39m</td>
+              <td class="mono neg">−$5.85</td>
+            </tr>
+            <tr data-cat="tp">
+              <td class="pair">DODO/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge tp">TP</span></td>
+              <td class="reason">30% profit lock — price returned to the +30% profit level</td>
+              <td class="mono">3h 13m</td>
+              <td class="mono pos">+$0.49</td>
+            </tr>
+            <tr data-cat="tp">
+              <td class="pair">PROM/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge tp">TP</span></td>
+              <td class="reason">30% profit lock — price returned to the +30% profit level</td>
+              <td class="mono">2h 53m</td>
+              <td class="mono pos">+$0.42</td>
+            </tr>
+            <tr data-cat="sl">
+              <td class="pair">PHA/USDT</td>
+              <td><span class="side long">LONG</span></td>
+              <td>Old early entry</td>
+              <td><span class="badge sl">SL</span></td>
+              <td class="reason">SL hit (-2.5%) — 5m candle closed below SL (STRONG candle-close rule)</td>
+              <td class="mono">56m</td>
+              <td class="mono neg">−$9.32</td>
+            </tr>
+            <tr data-cat="tp">
+              <td class="pair">SUPER/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge tp">TP</span></td>
+              <td class="reason">TP hit — price fell 2% (short profit target)</td>
+              <td class="mono">5h 43m</td>
+              <td class="mono pos">+$1.20</td>
+            </tr>
+            <tr data-cat="tp">
+              <td class="pair">SC/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge tp">TP</span></td>
+              <td class="reason">TP hit — price fell 2% (short profit target)</td>
+              <td class="mono">6h 23m</td>
+              <td class="mono pos">+$1.20</td>
+            </tr>
+            <tr data-cat="man">
+              <td class="pair">CAKE/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge man">MANUAL</span></td>
+              <td class="reason">closed by user order</td>
+              <td class="mono">14m</td>
+              <td class="mono pos">+$1.03</td>
+            </tr>
+            <tr data-cat="sl">
+              <td class="pair">KERNEL/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge sl">SL</span></td>
+              <td class="reason">SL hit (+2.2%) — 5m candle closed above SL (STRONG candle-close rule)</td>
+              <td class="mono">1h 52m</td>
+              <td class="mono neg">−$1.30</td>
+            </tr>
+            <tr data-cat="sl">
+              <td class="pair">CAKE/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge sl">SL</span></td>
+              <td class="reason">SL hit (+2.1%) — 5m candle closed above SL (STRONG candle-close rule)</td>
+              <td class="mono">5h 42m</td>
+              <td class="mono neg">−$1.23</td>
+            </tr>
+            <tr data-cat="tp">
+              <td class="pair">BMT/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge tp">TP</span></td>
+              <td class="reason">TP hit — price fell 2% (short profit target)</td>
+              <td class="mono">10m</td>
+              <td class="mono pos">+$9.00</td>
+            </tr>
+            <tr data-cat="tp">
+              <td class="pair">IOTX/USDT</td>
+              <td><span class="side long">LONG</span></td>
+              <td>Early entry</td>
+              <td><span class="badge tp">TP</span></td>
+              <td class="reason">TP1-lock stop after TP1</td>
+              <td class="mono">1h 43m</td>
+              <td class="mono pos">+$3.02</td>
+            </tr>
+            <tr data-cat="tp">
+              <td class="pair">COTI/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>RSI band shorts</td>
+              <td><span class="badge tp">TP</span></td>
+              <td class="reason">breakeven stop after TP1</td>
+              <td class="mono">2h 18m</td>
+              <td class="mono pos">+$2.09</td>
+            </tr>
+            <tr data-cat="sl">
+              <td class="pair">ARK/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge sl">SL</span></td>
+              <td class="reason">SL hit (+2.1%) — 5m candle closed above SL (STRONG candle-close rule)</td>
+              <td class="mono">5m</td>
+              <td class="mono neg">−$1.29</td>
+            </tr>
+            <tr data-cat="tp">
+              <td class="pair">IOST/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge tp">TP</span></td>
+              <td class="reason">TP hit — price fell 2% (short profit target)</td>
+              <td class="mono">21m</td>
+              <td class="mono pos">+$1.20</td>
+            </tr>
+            <tr data-cat="sl">
+              <td class="pair">MBL/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge sl">SL</span></td>
+              <td class="reason">SL hit (+2.1%) — 5m candle closed above SL (STRONG candle-close rule)</td>
+              <td class="mono">3h 53m</td>
+              <td class="mono neg">−$1.26</td>
+            </tr>
+            <tr data-cat="tp">
+              <td class="pair">ID/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge tp">TP</span></td>
+              <td class="reason">TP hit — price fell 2% (short profit target)</td>
+              <td class="mono">1h 31m</td>
+              <td class="mono pos">+$1.20</td>
+            </tr>
+            <tr data-cat="man">
+              <td class="pair">LA/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge man">MANUAL</span></td>
+              <td class="reason">CLOSED by user order: above breakeven, took it now at $0.0549</td>
+              <td class="mono">1h 00m</td>
+              <td class="mono pos">+$0.43</td>
+            </tr>
+            <tr data-cat="man">
+              <td class="pair">ORCA/USDT</td>
+              <td><span class="side long">LONG</span></td>
+              <td>Old early entry</td>
+              <td><span class="badge man">MANUAL</span></td>
+              <td class="reason">CLOSED by user order: above breakeven, took it now at $1.854</td>
+              <td class="mono">1h 00m</td>
+              <td class="mono pos">+$1.46</td>
+            </tr>
+            <tr data-cat="man">
+              <td class="pair">MASK/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge man">MANUAL</span></td>
+              <td class="reason">CLOSED by user order: above breakeven, took it now at $0.425</td>
+              <td class="mono">1h 00m</td>
+              <td class="mono pos">+$0.14</td>
+            </tr>
+            <tr data-cat="man">
+              <td class="pair">JST/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge man">MANUAL</span></td>
+              <td class="reason">CLOSED by user order: above breakeven, took it now at $0.13994</td>
+              <td class="mono">1h 39m</td>
+              <td class="mono pos">+$0.09</td>
+            </tr>
+            <tr data-cat="man">
+              <td class="pair">IOTX/USDT</td>
+              <td><span class="side long">LONG</span></td>
+              <td>Old early entry</td>
+              <td><span class="badge man">MANUAL</span></td>
+              <td class="reason">CLOSED by user order: above breakeven, took it now at $0.004216</td>
+              <td class="mono">1h 45m</td>
+              <td class="mono pos">+$1.51</td>
+            </tr>
+            <tr data-cat="man">
+              <td class="pair">PROM/USDT</td>
+              <td><span class="side long">LONG</span></td>
+              <td>Old early entry</td>
+              <td><span class="badge man">MANUAL</span></td>
+              <td class="reason">CLOSED by user order: above breakeven, took it now at $5.717</td>
+              <td class="mono">1h 45m</td>
+              <td class="mono pos">+$0.63</td>
+            </tr>
+            <tr data-cat="man">
+              <td class="pair">TSLAB/USDT</td>
+              <td><span class="side long">LONG</span></td>
+              <td>Old early entry</td>
+              <td><span class="badge man">MANUAL</span></td>
+              <td class="reason">CLOSED by user order: above breakeven, took it now at $377.18</td>
+              <td class="mono">1h 45m</td>
+              <td class="mono pos">+$0.20</td>
+            </tr>
+            <tr data-cat="man">
+              <td class="pair">RUNE/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts</td>
+              <td><span class="badge man">MANUAL</span></td>
+              <td class="reason">CLOSED by user order: above breakeven, took it now at $0.647</td>
+              <td class="mono">2h 14m</td>
+              <td class="mono pos">+$0.09</td>
+            </tr>
+            <tr data-cat="man">
+              <td class="pair">PARTI/USDT</td>
+              <td><span class="side long">LONG</span></td>
+              <td>Old early entry</td>
+              <td><span class="badge man">MANUAL</span></td>
+              <td class="reason">CLOSED by user order: above breakeven, took it now at $0.0332</td>
+              <td class="mono">2h 28m</td>
+              <td class="mono pos">+$0.45</td>
+            </tr>
+            <tr data-cat="tp">
+              <td class="pair">DYM/USDT</td>
+              <td><span class="side long">LONG</span></td>
+              <td>Old early entry</td>
+              <td><span class="badge tp">TP</span></td>
+              <td class="reason">breakeven stop after TP1</td>
+              <td class="mono">53m</td>
+              <td class="mono pos">+$1.05</td>
+            </tr></tbody>
+        </table>
       </div>
 
       <footer>
@@ -895,6 +1367,22 @@
         setInterval(refresh, REFRESH_MS);
         document.addEventListener("visibilitychange", function () {
           if (!document.hidden) refresh();
+        });
+      })();
+    </script>
+    <script>
+      (function () {
+        var btns = document.querySelectorAll(".filter-btn");
+        var rows = document.querySelectorAll("tr[data-cat]");
+        btns.forEach(function (b) {
+          b.addEventListener("click", function () {
+            btns.forEach(function (x) { x.classList.remove("active"); });
+            b.classList.add("active");
+            var f = b.getAttribute("data-filter");
+            rows.forEach(function (r) {
+              r.style.display = (f === "all" || r.getAttribute("data-cat") === f) ? "" : "none";
+            });
+          });
         });
       })();
     </script>
