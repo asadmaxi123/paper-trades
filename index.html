@@ -377,9 +377,9 @@
           <p class="sub">Open positions from a simulated $1,000 paper-trading account, marked against real market prices.</p>
         </div>
         <div class="stamp">
-          <span class="live-dot"></span><strong>2 trades running · Live</strong><br />
+          <span class="live-dot"></span><strong>3 trades running · Live</strong><br />
           <span class="live-status" id="live-status">Connecting to live prices…</span><br />
-          <span id="last-updated">Last snapshot · Fri 23 Oct 2026, 10:23 PM PKT</span>
+          <span id="last-updated">Last snapshot · Fri 23 Oct 2026, 10:33 PM PKT</span>
         </div>
       </header>
 
@@ -387,12 +387,12 @@
       <section class="scoreboard" aria-label="Account summary">
         <div class="stat">
           <div class="label">Record</div>
-          <div class="value mono">25W – 11L</div>
-          <div class="detail">38 closed trades</div>
+          <div class="value mono">26W – 11L</div>
+          <div class="detail">39 closed trades</div>
         </div>
         <div class="stat">
           <div class="label">Closed at TP</div>
-          <div class="value mono pos">18</div>
+          <div class="value mono pos">19</div>
           <div class="detail">take-profit &amp; profit-lock exits</div>
         </div>
         <div class="stat">
@@ -407,18 +407,18 @@
         </div>
         <div class="stat">
           <div class="label">Total P&amp;L</div>
-          <div class="value mono pos">+$12.47</div>
+          <div class="value mono pos">+$13.95</div>
           <div class="detail">on a $1,000 start</div>
         </div>
         <div class="stat">
           <div class="label">Free balance</div>
-          <div class="value mono">$1006.34</div>
+          <div class="value mono">$1001.57</div>
           <div class="detail">cash not in trades</div>
         </div>
         <div class="stat">
           <div class="label">Margin running</div>
-          <div class="value mono">$7.00</div>
-          <div class="detail">across 2 open trades</div>
+          <div class="value mono">$13.25</div>
+          <div class="detail">across 3 open trades</div>
         </div>
         <div class="stat">
           <div class="label">Biggest win</div>
@@ -436,9 +436,9 @@
       <section class="unrealized" id="unrealized-box" aria-label="Total unrealized profit and loss">
         <div>
           <div class="u-label">Total unrealized P&amp;L — open trades</div>
-          <div class="u-detail" id="unrealized-detail">Updating from live prices… · realized +$12.47</div>
+          <div class="u-detail" id="unrealized-detail">Updating from live prices… · realized +$13.95</div>
         </div>
-        <div class="u-value mono neg" id="total-unrealized">−$0.90</div>
+        <div class="u-value mono neg" id="total-unrealized">−$2.20</div>
       </section>
 
       <!-- Running trades -->
@@ -467,11 +467,11 @@
               <td class="pair">BNB/USDT</td>
               <td><span class="side short">SHORT</span></td>
               <td class="mono">$$745.56</td>
-              <td class="mono">$$747.15</td>
+              <td class="mono">$$745.84</td>
               <td class="mono">$$730.65</td>
               <td class="mono">$$760.47</td>
               <td class="mono">$2.00</td>
-              <td class="mono upnl neg">−$0.06<small>−3.2% on margin</small></td>
+              <td class="mono upnl neg">−$0.01<small>−0.6% on margin</small></td>
               <td class="mono">1:39 PM</td>
               <td><span class="status"><span class="dot"></span>Running</span></td>
             </tr>
@@ -483,8 +483,20 @@
               <td class="mono">$$0.0210</td>
               <td class="mono">$$0.0219</td>
               <td class="mono">$5.00</td>
-              <td class="mono upnl neg">−$0.84<small>−16.8% on margin</small></td>
+              <td class="mono upnl neg">−$1.19<small>−23.8% on margin</small></td>
               <td class="mono">8:31 PM</td>
+              <td><span class="status"><span class="dot"></span>Running</span></td>
+            </tr>
+            <tr>
+              <td class="pair">ERA/USDT<small>just opened</small></td>
+              <td><span class="side long">LONG</span></td>
+              <td class="mono">$$0.0750</td>
+              <td class="mono">$$0.0746</td>
+              <td class="mono">$$0.0757</td>
+              <td class="mono">$$0.0735</td>
+              <td class="mono">$6.25</td>
+              <td class="mono upnl neg">−$1.00<small>−16.0% on margin</small></td>
+              <td class="mono">10:19 PM</td>
               <td><span class="status"><span class="dot"></span>Running</span></td>
             </tr></tbody>
         </table>
@@ -502,8 +514,8 @@
             <div><span class="k">Margin</span><span class="mono">$2.00</span></div>
             <div><span class="k">Take profit</span><span class="mono">$$730.65</span></div>
             <div><span class="k">Stop loss</span><span class="mono">$$760.47</span></div>
-            <div><span class="k">Now</span><span class="mono">$$747.15</span></div>
-            <div><span class="k">Unrealized P&amp;L</span><span class="mono neg"><strong>−$0.06</strong> · −3.2%</span></div>
+            <div><span class="k">Now</span><span class="mono">$$745.84</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono neg"><strong>−$0.01</strong> · −0.6%</span></div>
           </div>
           <div class="card-foot">
             <span>Opened 1:39 PM</span>
@@ -522,10 +534,29 @@
             <div><span class="k">Take profit</span><span class="mono">$$0.0210</span></div>
             <div><span class="k">Stop loss</span><span class="mono">$$0.0219</span></div>
             <div><span class="k">Now</span><span class="mono">$$0.0216</span></div>
-            <div><span class="k">Unrealized P&amp;L</span><span class="mono neg"><strong>−$0.84</strong> · −16.8%</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono neg"><strong>−$1.19</strong> · −23.8%</span></div>
           </div>
           <div class="card-foot">
             <span>Opened 8:31 PM</span>
+            <span class="status"><span class="dot"></span>Running</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <span class="pair">ERA/USDT</span>
+            <span class="side long">LONG</span>
+          </div>
+          <div class="card-grid">
+            <div><span class="k">Entry</span><span class="mono">$$0.0750</span></div>
+            <div><span class="k">Margin</span><span class="mono">$6.25</span></div>
+            <div><span class="k">Take profit</span><span class="mono">$$0.0757</span></div>
+            <div><span class="k">Stop loss</span><span class="mono">$$0.0735</span></div>
+            <div><span class="k">Now</span><span class="mono">$$0.0746</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono neg"><strong>−$1.00</strong> · −16.0%</span></div>
+          </div>
+          <div class="card-foot">
+            <span>Opened 10:19 PM</span>
             <span class="status"><span class="dot"></span>Running</span>
           </div>
         </div>
@@ -558,7 +589,7 @@
     <script>
       (function () {
         var LEVERAGE = 30;
-        var REALIZED = 12.47;
+        var REALIZED = 13.95;
         var REFRESH_MS = 10000;
         var MINUS = "\u2212";
 
