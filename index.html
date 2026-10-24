@@ -385,9 +385,9 @@
           <p class="sub">Open positions from a simulated $1,000 paper-trading account, marked against real market prices.</p>
         </div>
         <div class="stamp">
-          <span class="live-dot"></span><strong>0 trades running · Live</strong><br />
+          <span class="live-dot"></span><strong>1 trades running · Live</strong><br />
           <span class="live-status" id="live-status">Connecting to live prices…</span><br />
-          <span id="last-updated">Last snapshot · Sat 24 Oct 2026, 7:16 PM PKT</span>
+          <span id="last-updated">Last snapshot · Sat 24 Oct 2026, 7:17 PM PKT</span>
         </div>
       </header>
 
@@ -420,13 +420,13 @@
         </div>
         <div class="stat">
           <div class="label">Free balance</div>
-          <div class="value mono">$1000.00</div>
+          <div class="value mono">$980.00</div>
           <div class="detail">cash not in trades</div>
         </div>
         <div class="stat">
           <div class="label">Margin running</div>
-          <div class="value mono">$0.00</div>
-          <div class="detail">across 0 open trades</div>
+          <div class="value mono">$20.00</div>
+          <div class="detail">across 1 open trades</div>
         </div>
         <div class="stat">
           <div class="label">Biggest win</div>
@@ -482,12 +482,42 @@
               <th>Status</th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody>            <tr>
+              <td class="pair">MC/USDT<small>just opened</small></td>
+              <td><span class="side short">SHORT</span></td>
+              <td class="mono">$0.4861</td>
+              <td class="mono">$0.4861</td>
+              <td class="mono">$0.4812</td>
+              <td class="mono">$0.4958</td>
+              <td class="mono">$20.00</td>
+              <td class="mono upnl ">+$0.00<small>+0.0% on margin</small></td>
+              <td class="mono">7:16 PM</td>
+              <td><span class="status"><span class="dot"></span>Running</span></td>
+            </tr></tbody>
         </table>
       </div>
 
       <!-- Mobile cards -->
       <div class="cards">
+        <div class="card">
+          <div class="card-top">
+            <span class="pair">MC/USDT</span>
+            <span class="side short">SHORT</span>
+          </div>
+          <div class="card-grid">
+            <div><span class="k">Entry</span><span class="mono">$0.4861</span></div>
+            <div><span class="k">Margin</span><span class="mono">$20.00</span></div>
+            <div><span class="k">Take profit</span><span class="mono">$0.4812</span></div>
+            <div><span class="k">Stop loss</span><span class="mono">$0.4958</span></div>
+            <div><span class="k">Now</span><span class="mono">$0.4861</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono "><strong>+$0.00</strong> · +0.0%</span></div>
+          </div>
+          <div class="card-foot">
+            <span>Opened 7:16 PM</span>
+            <span class="status"><span class="dot"></span>Running</span>
+          </div>
+        </div>
+
       </div>
 
       <!-- Extremes -->
@@ -524,7 +554,13 @@
               <th>Realized P&amp;L</th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody>            <tr>
+              <td class="pair">Warning shorts</td>
+              <td class="mono">1</td>
+              <td class="mono">0</td>
+              <td class="mono">0W – 0L</td>
+              <td class="mono ">+$0.00</td>
+            </tr></tbody>
         </table>
       </div>
 
