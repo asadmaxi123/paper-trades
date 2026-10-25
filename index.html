@@ -385,9 +385,9 @@
           <p class="sub">Open positions from a simulated $1,000 paper-trading account, marked against real market prices.</p>
         </div>
         <div class="stamp">
-          <span class="live-dot"></span><strong>2 trades running · Live</strong><br />
+          <span class="live-dot"></span><strong>3 trades running · Live</strong><br />
           <span class="live-status" id="live-status">Connecting to live prices…</span><br />
-          <span id="last-updated">Last snapshot · Sun 25 Oct 2026, 5:17 PM PKT</span>
+          <span id="last-updated">Last snapshot · Sun 25 Oct 2026, 5:18 PM PKT</span>
         </div>
       </header>
 
@@ -420,13 +420,13 @@
         </div>
         <div class="stat">
           <div class="label">Free balance</div>
-          <div class="value mono">$1120.60</div>
+          <div class="value mono">$1110.60</div>
           <div class="detail">cash not in trades</div>
         </div>
         <div class="stat">
           <div class="label">Margin running</div>
-          <div class="value mono">$6.00</div>
-          <div class="detail">across 2 open trades</div>
+          <div class="value mono">$16.00</div>
+          <div class="detail">across 3 open trades</div>
         </div>
         <div class="stat">
           <div class="label">Biggest win</div>
@@ -446,7 +446,7 @@
           <div class="u-label">Total unrealized P&amp;L — open trades</div>
           <div class="u-detail" id="unrealized-detail">Updating from live prices… · realized +$10.74</div>
         </div>
-        <div class="u-value mono pos" id="total-unrealized">+$2.85</div>
+        <div class="u-value mono pos" id="total-unrealized">+$2.95</div>
       </section>
 
       <!-- SL summary: aggregates only. Per-trade SL detail and exit
@@ -498,13 +498,25 @@
               <td class="pair">ANIME/USDT</td>
               <td><span class="side short">SHORT</span></td>
               <td class="mono">$0.003010</td>
-              <td class="mono">$0.002930</td>
+              <td class="mono">$0.002920</td>
               <td class="mono">$0.002890<small>runner</small></td>
               <td class="mono">$0.003010</td>
               <td class="mono">$1.00</td>
-              <td class="mono upnl pos">+$0.80<small>+79.7% on margin</small></td>
+              <td class="mono upnl pos">+$0.90<small>+89.7% on margin</small></td>
               <td class="mono">3:07 PM</td>
               <td><span class="status"><span class="dot"></span>TP1 banked · runner</span></td>
+            </tr>
+            <tr>
+              <td class="pair">MC/USDT<small>just opened</small></td>
+              <td><span class="side short">SHORT</span></td>
+              <td class="mono">$0.4861</td>
+              <td class="mono">$0.4861</td>
+              <td class="mono">$0.4812</td>
+              <td class="mono">$0.4958</td>
+              <td class="mono">$10.00</td>
+              <td class="mono upnl ">+$0.00<small>+0.0% on margin</small></td>
+              <td class="mono">5:15 PM</td>
+              <td><span class="status"><span class="dot"></span>Running</span></td>
             </tr></tbody>
         </table>
       </div>
@@ -540,12 +552,31 @@
             <div><span class="k">Margin</span><span class="mono">$1.00</span><small>of $10.00</small></div>
             <div><span class="k">Take profit</span><span class="mono">$0.002890</span><small>runner</small></div>
             <div><span class="k">Stop loss</span><span class="mono">$0.003010</span></div>
-            <div><span class="k">Now</span><span class="mono">$0.002930</span></div>
-            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$0.80</strong> · +79.7%</span></div>
+            <div><span class="k">Now</span><span class="mono">$0.002920</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$0.90</strong> · +89.7%</span></div>
           </div>
           <div class="card-foot">
             <span>Opened 3:07 PM</span>
             <span class="status"><span class="dot"></span>TP1 banked · runner</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <span class="pair">MC/USDT</span>
+            <span class="side short">SHORT</span>
+          </div>
+          <div class="card-grid">
+            <div><span class="k">Entry</span><span class="mono">$0.4861</span></div>
+            <div><span class="k">Margin</span><span class="mono">$10.00</span></div>
+            <div><span class="k">Take profit</span><span class="mono">$0.4812</span></div>
+            <div><span class="k">Stop loss</span><span class="mono">$0.4958</span></div>
+            <div><span class="k">Now</span><span class="mono">$0.4861</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono "><strong>+$0.00</strong> · +0.0%</span></div>
+          </div>
+          <div class="card-foot">
+            <span>Opened 5:15 PM</span>
+            <span class="status"><span class="dot"></span>Running</span>
           </div>
         </div>
 
@@ -601,7 +632,7 @@
             </tr>
             <tr>
               <td class="pair">Warning shorts</td>
-              <td class="mono">1</td>
+              <td class="mono">2</td>
               <td class="mono">5</td>
               <td class="mono">2W – 1L</td>
               <td class="mono pos">+$2.95</td>
