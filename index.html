@@ -385,9 +385,9 @@
           <p class="sub">Open positions from a simulated $1,000 paper-trading account, marked against real market prices.</p>
         </div>
         <div class="stamp">
-          <span class="live-dot"></span><strong>12 trades running · Live</strong><br />
+          <span class="live-dot"></span><strong>11 trades running · Live</strong><br />
           <span class="live-status" id="live-status">Connecting to live prices…</span><br />
-          <span id="last-updated">Last snapshot · Sun 25 Oct 2026, 2:17 PM PKT</span>
+          <span id="last-updated">Last snapshot · Sun 25 Oct 2026, 2:18 PM PKT</span>
         </div>
       </header>
 
@@ -395,8 +395,8 @@
       <section class="scoreboard" aria-label="Account summary">
         <div class="stat">
           <div class="label">Record</div>
-          <div class="value mono">0W – 0L</div>
-          <div class="detail">0 closed trades</div>
+          <div class="value mono">0W – 1L</div>
+          <div class="detail">1 closed trades</div>
         </div>
         <div class="stat">
           <div class="label">Closed at TP</div>
@@ -405,7 +405,7 @@
         </div>
         <div class="stat">
           <div class="label">Closed at SL</div>
-          <div class="value mono neg">0</div>
+          <div class="value mono neg">1</div>
           <div class="detail">stop-loss exits</div>
         </div>
         <div class="stat">
@@ -415,28 +415,28 @@
         </div>
         <div class="stat">
           <div class="label">Total P&amp;L</div>
-          <div class="value mono ">+$0.00</div>
+          <div class="value mono neg">−$24.41</div>
           <div class="detail">on a $1,000 start</div>
         </div>
         <div class="stat">
           <div class="label">Free balance</div>
-          <div class="value mono">$988.58</div>
+          <div class="value mono">$993.14</div>
           <div class="detail">cash not in trades</div>
         </div>
         <div class="stat">
           <div class="label">Margin running</div>
-          <div class="value mono">$270.00</div>
-          <div class="detail">across 12 open trades</div>
+          <div class="value mono">$220.00</div>
+          <div class="detail">across 11 open trades</div>
         </div>
         <div class="stat">
           <div class="label">Biggest win</div>
-          <div class="value mono pos">$0.00</div>
-          <div class="detail">—</div>
+          <div class="value mono pos">−$24.41</div>
+          <div class="detail">WIF/USDT</div>
         </div>
         <div class="stat">
           <div class="label">Biggest loss</div>
-          <div class="value mono neg">$0.00</div>
-          <div class="detail">—</div>
+          <div class="value mono neg">−$24.41</div>
+          <div class="detail">WIF/USDT</div>
         </div>
       </section>
 
@@ -444,9 +444,9 @@
       <section class="unrealized" id="unrealized-box" aria-label="Total unrealized profit and loss">
         <div>
           <div class="u-label">Total unrealized P&amp;L — open trades</div>
-          <div class="u-detail" id="unrealized-detail">Updating from live prices… · realized +$0.00</div>
+          <div class="u-detail" id="unrealized-detail">Updating from live prices… · realized −$24.41</div>
         </div>
-        <div class="u-value mono neg" id="total-unrealized">−$2.46</div>
+        <div class="u-value mono pos" id="total-unrealized">+$5.44</div>
       </section>
 
       <!-- SL summary: aggregates only. Per-trade SL detail and exit
@@ -455,9 +455,9 @@
       <section class="unrealized" aria-label="Stop-loss summary">
         <div>
           <div class="u-label">Stop-loss summary — all-time SL cost</div>
-          <div class="u-detail">Today (PKT): 9 SL exits · −$96.55 — all-time: 0 SL exits — by strategy: </div>
+          <div class="u-detail">Today (PKT): 9 SL exits · −$96.55 — all-time: 1 SL exits — by strategy: RSI band longs 1</div>
         </div>
-        <div class="u-value mono neg">+$0.00</div>
+        <div class="u-value mono neg">−$24.41</div>
       </section>
 
       <!-- Running trades -->
@@ -498,11 +498,11 @@
               <td class="pair">AAPLB/USDT</td>
               <td><span class="side short">SHORT</span></td>
               <td class="mono">$346.91</td>
-              <td class="mono">$346.83</td>
+              <td class="mono">$346.78</td>
               <td class="mono">$343.44</td>
               <td class="mono">$353.85</td>
               <td class="mono">$20.00</td>
-              <td class="mono upnl pos">+$0.14<small>+0.7% on margin</small></td>
+              <td class="mono upnl pos">+$0.22<small>+1.1% on margin</small></td>
               <td class="mono">7:57 PM</td>
               <td><span class="status"><span class="dot"></span>Running</span></td>
             </tr>
@@ -510,11 +510,11 @@
               <td class="pair">BNB/USDT</td>
               <td><span class="side long">LONG</span></td>
               <td class="mono">$720.68</td>
-              <td class="mono">$736.77</td>
+              <td class="mono">$735.87</td>
               <td class="mono">$727.89</td>
               <td class="mono">$720.68</td>
               <td class="mono">$25.00</td>
-              <td class="mono upnl pos">+$1.67<small>+6.7% on margin</small></td>
+              <td class="mono upnl pos">+$1.58<small>+6.3% on margin</small></td>
               <td class="mono">8:23 PM</td>
               <td><span class="status"><span class="dot"></span>Running</span></td>
             </tr>
@@ -522,11 +522,11 @@
               <td class="pair">ETH/USDT</td>
               <td><span class="side long">LONG</span></td>
               <td class="mono">$2,296.22</td>
-              <td class="mono">$2,328.42</td>
+              <td class="mono">$2,322.49</td>
               <td class="mono">$2,319.18</td>
               <td class="mono">$2,296.22</td>
               <td class="mono">$25.00</td>
-              <td class="mono upnl pos">+$1.05<small>+4.2% on margin</small></td>
+              <td class="mono upnl pos">+$0.86<small>+3.4% on margin</small></td>
               <td class="mono">8:23 PM</td>
               <td><span class="status"><span class="dot"></span>Running</span></td>
             </tr>
@@ -546,11 +546,11 @@
               <td class="pair">ADA/USDT</td>
               <td><span class="side short">SHORT</span></td>
               <td class="mono">$0.2060</td>
-              <td class="mono">$0.2028</td>
+              <td class="mono">$0.2024</td>
               <td class="mono">$0.2039</td>
               <td class="mono">$0.2060</td>
               <td class="mono">$10.00</td>
-              <td class="mono upnl pos">+$0.23<small>+2.3% on margin</small></td>
+              <td class="mono upnl pos">+$0.26<small>+2.6% on margin</small></td>
               <td class="mono">2:51 AM</td>
               <td><span class="status"><span class="dot"></span>Running</span></td>
             </tr>
@@ -562,7 +562,7 @@
               <td class="mono">$1.0099</td>
               <td class="mono">$0.9799</td>
               <td class="mono">$25.00</td>
-              <td class="mono upnl neg">−$0.03<small>−0.1% on margin</small></td>
+              <td class="mono upnl neg">−$0.04<small>−0.2% on margin</small></td>
               <td class="mono">5:19 AM</td>
               <td><span class="status"><span class="dot"></span>Running</span></td>
             </tr>
@@ -582,11 +582,11 @@
               <td class="pair">PROM/USDT</td>
               <td><span class="side long">LONG</span></td>
               <td class="mono">$5.3780</td>
-              <td class="mono">$5.4070</td>
+              <td class="mono">$5.4050</td>
               <td class="mono">$5.4318</td>
               <td class="mono">$5.3780</td>
               <td class="mono">$25.00</td>
-              <td class="mono upnl pos">+$0.40<small>+1.6% on margin</small></td>
+              <td class="mono upnl pos">+$0.38<small>+1.5% on margin</small></td>
               <td class="mono">6:35 AM</td>
               <td><span class="status"><span class="dot"></span>Running</span></td>
             </tr>
@@ -594,11 +594,11 @@
               <td class="pair">GMX/USDT</td>
               <td><span class="side long">LONG</span></td>
               <td class="mono">$8.3500</td>
-              <td class="mono">$8.4600</td>
+              <td class="mono">$8.4500</td>
               <td class="mono">$8.4335</td>
               <td class="mono">$8.3500</td>
               <td class="mono">$25.00</td>
-              <td class="mono upnl pos">+$0.99<small>+4.0% on margin</small></td>
+              <td class="mono upnl pos">+$0.90<small>+3.6% on margin</small></td>
               <td class="mono">7:14 AM</td>
               <td><span class="status"><span class="dot"></span>Running</span></td>
             </tr>
@@ -606,24 +606,12 @@
               <td class="pair">BARD/USDT</td>
               <td><span class="side short">SHORT</span></td>
               <td class="mono">$0.1120</td>
-              <td class="mono">$0.1100</td>
+              <td class="mono">$0.1098</td>
               <td class="mono">$0.1109</td>
               <td class="mono">$0.1120</td>
               <td class="mono">$10.00</td>
-              <td class="mono upnl pos">+$0.54<small>+5.4% on margin</small></td>
+              <td class="mono upnl pos">+$0.59<small>+5.9% on margin</small></td>
               <td class="mono">10:50 AM</td>
-              <td><span class="status"><span class="dot"></span>Running</span></td>
-            </tr>
-            <tr>
-              <td class="pair">WIF/USDT</td>
-              <td><span class="side long">LONG</span></td>
-              <td class="mono">$0.1795</td>
-              <td class="mono">$0.1756</td>
-              <td class="mono">$0.1813</td>
-              <td class="mono">$0.1759</td>
-              <td class="mono">$50.00</td>
-              <td class="mono upnl neg">−$8.15<small>−16.3% on margin</small></td>
-              <td class="mono">12:04 PM</td>
               <td><span class="status"><span class="dot"></span>Running</span></td>
             </tr></tbody>
         </table>
@@ -660,8 +648,8 @@
             <div><span class="k">Margin</span><span class="mono">$20.00</span></div>
             <div><span class="k">Take profit</span><span class="mono">$343.44</span></div>
             <div><span class="k">Stop loss</span><span class="mono">$353.85</span></div>
-            <div><span class="k">Now</span><span class="mono">$346.83</span></div>
-            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$0.14</strong> · +0.7%</span></div>
+            <div><span class="k">Now</span><span class="mono">$346.78</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$0.22</strong> · +1.1%</span></div>
           </div>
           <div class="card-foot">
             <span>Opened 7:57 PM</span>
@@ -679,8 +667,8 @@
             <div><span class="k">Margin</span><span class="mono">$25.00</span></div>
             <div><span class="k">Take profit</span><span class="mono">$727.89</span></div>
             <div><span class="k">Stop loss</span><span class="mono">$720.68</span></div>
-            <div><span class="k">Now</span><span class="mono">$736.77</span></div>
-            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$1.67</strong> · +6.7%</span></div>
+            <div><span class="k">Now</span><span class="mono">$735.87</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$1.58</strong> · +6.3%</span></div>
           </div>
           <div class="card-foot">
             <span>Opened 8:23 PM</span>
@@ -698,8 +686,8 @@
             <div><span class="k">Margin</span><span class="mono">$25.00</span></div>
             <div><span class="k">Take profit</span><span class="mono">$2,319.18</span></div>
             <div><span class="k">Stop loss</span><span class="mono">$2,296.22</span></div>
-            <div><span class="k">Now</span><span class="mono">$2,328.42</span></div>
-            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$1.05</strong> · +4.2%</span></div>
+            <div><span class="k">Now</span><span class="mono">$2,322.49</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$0.86</strong> · +3.4%</span></div>
           </div>
           <div class="card-foot">
             <span>Opened 8:23 PM</span>
@@ -736,8 +724,8 @@
             <div><span class="k">Margin</span><span class="mono">$10.00</span></div>
             <div><span class="k">Take profit</span><span class="mono">$0.2039</span></div>
             <div><span class="k">Stop loss</span><span class="mono">$0.2060</span></div>
-            <div><span class="k">Now</span><span class="mono">$0.2028</span></div>
-            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$0.23</strong> · +2.3%</span></div>
+            <div><span class="k">Now</span><span class="mono">$0.2024</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$0.26</strong> · +2.6%</span></div>
           </div>
           <div class="card-foot">
             <span>Opened 2:51 AM</span>
@@ -756,7 +744,7 @@
             <div><span class="k">Take profit</span><span class="mono">$1.0099</span></div>
             <div><span class="k">Stop loss</span><span class="mono">$0.9799</span></div>
             <div><span class="k">Now</span><span class="mono">$0.9999</span></div>
-            <div><span class="k">Unrealized P&amp;L</span><span class="mono neg"><strong>−$0.03</strong> · −0.1%</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono neg"><strong>−$0.04</strong> · −0.2%</span></div>
           </div>
           <div class="card-foot">
             <span>Opened 5:19 AM</span>
@@ -793,8 +781,8 @@
             <div><span class="k">Margin</span><span class="mono">$25.00</span></div>
             <div><span class="k">Take profit</span><span class="mono">$5.4318</span></div>
             <div><span class="k">Stop loss</span><span class="mono">$5.3780</span></div>
-            <div><span class="k">Now</span><span class="mono">$5.4070</span></div>
-            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$0.40</strong> · +1.6%</span></div>
+            <div><span class="k">Now</span><span class="mono">$5.4050</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$0.38</strong> · +1.5%</span></div>
           </div>
           <div class="card-foot">
             <span>Opened 6:35 AM</span>
@@ -812,8 +800,8 @@
             <div><span class="k">Margin</span><span class="mono">$25.00</span></div>
             <div><span class="k">Take profit</span><span class="mono">$8.4335</span></div>
             <div><span class="k">Stop loss</span><span class="mono">$8.3500</span></div>
-            <div><span class="k">Now</span><span class="mono">$8.4600</span></div>
-            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$0.99</strong> · +4.0%</span></div>
+            <div><span class="k">Now</span><span class="mono">$8.4500</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$0.90</strong> · +3.6%</span></div>
           </div>
           <div class="card-foot">
             <span>Opened 7:14 AM</span>
@@ -831,30 +819,11 @@
             <div><span class="k">Margin</span><span class="mono">$10.00</span></div>
             <div><span class="k">Take profit</span><span class="mono">$0.1109</span></div>
             <div><span class="k">Stop loss</span><span class="mono">$0.1120</span></div>
-            <div><span class="k">Now</span><span class="mono">$0.1100</span></div>
-            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$0.54</strong> · +5.4%</span></div>
+            <div><span class="k">Now</span><span class="mono">$0.1098</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$0.59</strong> · +5.9%</span></div>
           </div>
           <div class="card-foot">
             <span>Opened 10:50 AM</span>
-            <span class="status"><span class="dot"></span>Running</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-top">
-            <span class="pair">WIF/USDT</span>
-            <span class="side long">LONG</span>
-          </div>
-          <div class="card-grid">
-            <div><span class="k">Entry</span><span class="mono">$0.1795</span></div>
-            <div><span class="k">Margin</span><span class="mono">$50.00</span></div>
-            <div><span class="k">Take profit</span><span class="mono">$0.1813</span></div>
-            <div><span class="k">Stop loss</span><span class="mono">$0.1759</span></div>
-            <div><span class="k">Now</span><span class="mono">$0.1756</span></div>
-            <div><span class="k">Unrealized P&amp;L</span><span class="mono neg"><strong>−$8.15</strong> · −16.3%</span></div>
-          </div>
-          <div class="card-foot">
-            <span>Opened 12:04 PM</span>
             <span class="status"><span class="dot"></span>Running</span>
           </div>
         </div>
@@ -869,13 +838,13 @@
       <div class="extremes">
         <div class="extreme win">
           <div class="label">Biggest win</div>
-          <div class="amount mono">$0.00</div>
-          <div class="who">—</div>
+          <div class="amount mono">−$24.41</div>
+          <div class="who">WIF/USDT long — SL hit (-2.1%) · 7560.0</div>
         </div>
         <div class="extreme loss">
           <div class="label">Biggest loss</div>
-          <div class="amount mono">$0.00</div>
-          <div class="who">—</div>
+          <div class="amount mono">−$24.41</div>
+          <div class="who">WIF/USDT long — SL hit (-2.1%) · 7560.0</div>
         </div>
       </div>
 
@@ -903,13 +872,6 @@
               <td class="mono ">+$0.00</td>
             </tr>
             <tr>
-              <td class="pair">RSI band longs</td>
-              <td class="mono">3</td>
-              <td class="mono">0</td>
-              <td class="mono">0W – 0L</td>
-              <td class="mono ">+$0.00</td>
-            </tr>
-            <tr>
               <td class="pair">Old RSI-55</td>
               <td class="mono">2</td>
               <td class="mono">0</td>
@@ -929,6 +891,13 @@
               <td class="mono">0</td>
               <td class="mono">0W – 0L</td>
               <td class="mono ">+$0.00</td>
+            </tr>
+            <tr>
+              <td class="pair">RSI band longs</td>
+              <td class="mono">2</td>
+              <td class="mono">1</td>
+              <td class="mono">0W – 1L</td>
+              <td class="mono neg">−$24.41</td>
             </tr></tbody>
         </table>
       </div>
@@ -945,7 +914,7 @@
     <script>
       (function () {
         var LEVERAGE = 30;
-        var REALIZED = 0.00;
+        var REALIZED = -24.41;
         var REFRESH_MS = 10000;
         var MINUS = "\u2212";
 
