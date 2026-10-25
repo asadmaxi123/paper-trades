@@ -387,7 +387,7 @@
         <div class="stamp">
           <span class="live-dot"></span><strong>3 trades running · Live</strong><br />
           <span class="live-status" id="live-status">Connecting to live prices…</span><br />
-          <span id="last-updated">Last snapshot · Sun 25 Oct 2026, 5:43 PM PKT</span>
+          <span id="last-updated">Last snapshot · Sun 25 Oct 2026, 5:44 PM PKT</span>
         </div>
       </header>
 
@@ -412,6 +412,11 @@
           <div class="label">Closed manually</div>
           <div class="value mono">11</div>
           <div class="detail">closed by the trader's order</div>
+        </div>
+        <div class="stat">
+          <div class="label">Closed at expiry</div>
+          <div class="value mono">0</div>
+          <div class="detail">ran out of time, closed at market</div>
         </div>
         <div class="stat">
           <div class="label">Total P&amp;L</div>
@@ -446,18 +451,28 @@
           <div class="u-label">Total unrealized P&amp;L — open trades</div>
           <div class="u-detail" id="unrealized-detail">Updating from live prices… · realized +$14.64</div>
         </div>
-        <div class="u-value mono pos" id="total-unrealized">+$2.07</div>
+        <div class="u-value mono pos" id="total-unrealized">+$1.71</div>
       </section>
 
       <!-- SL summary: aggregates only. Per-trade SL detail and exit
-           reasons live ONLY on the private dashboard (user rule
-           2026-10-24) - no coin names, no per-trade rows here. -->
+           reasons live only in the paper log (the private dashboard
+           was removed 2026-10-25 - this page is the only dashboard). -->
       <section class="unrealized" aria-label="Stop-loss summary">
         <div>
           <div class="u-label">Stop-loss summary — all-time SL cost</div>
           <div class="u-detail">Today (PKT): 1 SL exits · −$24.41 — all-time: 1 SL exits — by strategy: RSI band longs 1</div>
         </div>
         <div class="u-value mono neg">−$24.41</div>
+      </section>
+
+      <!-- Mixed outcomes (user order 2026-10-25): trades cut in a loss
+           first that later banked TP1, and trades that hit TP1 but are
+           still in loss. Counts and coin names only - no reasons. -->
+      <section class="unrealized" aria-label="Mixed outcomes">
+        <div>
+          <div class="u-label">Comebacks &amp; mixed results — this book</div>
+          <div class="u-detail">Cut in loss first, then banked TP1: <strong>1</strong> — ADA<br/>Hit TP1 but still in loss: <strong>1</strong> — ADA −$0.13</div>
+        </div>
       </section>
 
       <!-- Running trades -->
@@ -482,15 +497,15 @@
               <th>Status</th>
             </tr>
           </thead>
-          <tbody>            <tr>
+          <tbody id="open-rows">            <tr>
               <td class="pair">WIF/USDT</td>
               <td><span class="side long">LONG</span></td>
               <td class="mono">$0.1752</td>
-              <td class="mono">$0.1778</td>
+              <td class="mono">$0.1777</td>
               <td class="mono">$0.1822<small>runner</small></td>
               <td class="mono">$0.1752</td>
               <td class="mono">$5.00</td>
-              <td class="mono upnl pos">+$2.23<small>+44.5% on margin</small></td>
+              <td class="mono upnl pos">+$2.14<small>+42.8% on margin</small></td>
               <td class="mono">2:19 PM</td>
               <td><span class="status"><span class="dot"></span>TP1 banked · runner</span></td>
             </tr>
@@ -510,11 +525,11 @@
               <td class="pair">BABY/USDT<small>just opened</small></td>
               <td><span class="side long">LONG</span></td>
               <td class="mono">$0.0141</td>
-              <td class="mono">$0.0141</td>
+              <td class="mono">$0.0140</td>
               <td class="mono">$0.0147<small>runner</small></td>
               <td class="mono">$0.0141</td>
               <td class="mono">$2.50</td>
-              <td class="mono upnl neg">−$0.16<small>−6.4% on margin</small></td>
+              <td class="mono upnl neg">−$0.43<small>−17.0% on margin</small></td>
               <td class="mono">5:27 PM</td>
               <td><span class="status"><span class="dot"></span>TP1 banked · runner</span></td>
             </tr></tbody>
@@ -533,8 +548,8 @@
             <div><span class="k">Margin</span><span class="mono">$5.00</span><small>of $50.00</small></div>
             <div><span class="k">Take profit</span><span class="mono">$0.1822</span><small>runner</small></div>
             <div><span class="k">Stop loss</span><span class="mono">$0.1752</span></div>
-            <div><span class="k">Now</span><span class="mono">$0.1778</span></div>
-            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$2.23</strong> · +44.5%</span></div>
+            <div><span class="k">Now</span><span class="mono">$0.1777</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$2.14</strong> · +42.8%</span></div>
           </div>
           <div class="card-foot">
             <span>Opened 2:19 PM</span>
@@ -571,8 +586,8 @@
             <div><span class="k">Margin</span><span class="mono">$2.50</span><small>of $25.00</small></div>
             <div><span class="k">Take profit</span><span class="mono">$0.0147</span><small>runner</small></div>
             <div><span class="k">Stop loss</span><span class="mono">$0.0141</span></div>
-            <div><span class="k">Now</span><span class="mono">$0.0141</span></div>
-            <div><span class="k">Unrealized P&amp;L</span><span class="mono neg"><strong>−$0.16</strong> · −6.4%</span></div>
+            <div><span class="k">Now</span><span class="mono">$0.0140</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono neg"><strong>−$0.43</strong> · −17.0%</span></div>
           </div>
           <div class="card-foot">
             <span>Opened 5:27 PM</span>
@@ -654,9 +669,9 @@
         </table>
       </div>
 
-      <!-- Per-trade closed detail + reasons live ONLY on the private
-           dashboard (user rule 2026-10-24). The public page shows
-           aggregates only: scoreboard, extremes, strategy breakdown. -->
+      <!-- Per-trade closed detail + reasons live only in the paper
+           log. This page (the only dashboard since 2026-10-25) shows
+           aggregates: scoreboard, extremes, strategy breakdown. -->
 
       <footer>
         <span>Paper trading — simulated funds, real market prices. No real orders are placed.</span>
@@ -686,7 +701,7 @@
           return parts.length > 1 ? parts[1].length : 0;
         }
         function fmtPrice(price, decimals) {
-          return "$" + price.toFixed(decimals);
+          return price.toFixed(decimals);
         }
         function fmtMoney(v) {
           if (v > 0.004) return "+$" + v.toFixed(2);
@@ -710,7 +725,7 @@
         }
 
         // ---- Read the trades already rendered on the page ----
-        var rows = Array.prototype.slice.call(document.querySelectorAll("tbody tr"));
+        var rows = Array.prototype.slice.call(document.querySelectorAll("#open-rows tr"));
         var cards = Array.prototype.slice.call(document.querySelectorAll(".cards .card"));
         var trades = rows.map(function (row, i) {
           var cells = row.querySelectorAll("td");
@@ -801,7 +816,7 @@
             detailEl.textContent =
               profit + " of " + trades.length + " trades in profit, " + down + " down, " + flat +
               " flat \u00B7 live Binance marks (" + liveCount + "/" + trades.length + " priced live)" +
-              " \u00B7 realized +$" + REALIZED.toFixed(2) + ", so " + fmtMoney(combined) + " counting open trades";
+              " \u00B7 realized " + fmtMoney(REALIZED) + ", so " + fmtMoney(combined) + " counting open trades";
           }
           return total;
         }
