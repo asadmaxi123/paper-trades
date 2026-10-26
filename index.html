@@ -388,9 +388,9 @@
           <p class="sub">Open positions from a simulated $1,000 paper-trading account, marked against real market prices.</p>
         </div>
         <div class="stamp">
-          <span class="live-dot"></span><strong>2 trades running · Live</strong><br />
+          <span class="live-dot"></span><strong>3 trades running · Live</strong><br />
           <span class="live-status" id="live-status">Connecting to live prices…</span><br />
-          <span id="last-updated">Last snapshot · Mon 26 Oct 2026, 10:37 AM PKT</span>
+          <span id="last-updated">Last snapshot · Mon 26 Oct 2026, 10:38 AM PKT</span>
         </div>
       </header>
 
@@ -428,13 +428,13 @@
         </div>
         <div class="stat">
           <div class="label">Free balance</div>
-          <div class="value mono">$1124.79</div>
+          <div class="value mono">$1114.79</div>
           <div class="detail">cash not in trades</div>
         </div>
         <div class="stat">
           <div class="label">Margin running</div>
-          <div class="value mono">$15.00</div>
-          <div class="detail">across 2 open trades</div>
+          <div class="value mono">$25.00</div>
+          <div class="detail">across 3 open trades</div>
         </div>
         <div class="stat">
           <div class="label">Biggest win</div>
@@ -523,6 +523,18 @@
               <td class="mono upnl ">+$0.00<small>+0.0% on margin</small></td>
               <td class="mono">9:50 AM</td>
               <td><span class="status"><span class="dot"></span>Running</span></td>
+            </tr>
+            <tr>
+              <td class="pair">ANKR/USDT<small>just opened</small></td>
+              <td><span class="side short">SHORT</span></td>
+              <td class="mono">$0.004070</td>
+              <td class="mono">$0.004070</td>
+              <td class="mono">$0.004029</td>
+              <td class="mono">$0.004151</td>
+              <td class="mono">$10.00</td>
+              <td class="mono upnl ">+$0.00<small>+0.0% on margin</small></td>
+              <td class="mono">10:31 AM</td>
+              <td><span class="status"><span class="dot"></span>Running</span></td>
             </tr></tbody>
         </table>
       </div>
@@ -567,6 +579,25 @@
           </div>
         </div>
 
+        <div class="card">
+          <div class="card-top">
+            <span class="pair">ANKR/USDT</span>
+            <span class="side short">SHORT</span>
+          </div>
+          <div class="card-grid">
+            <div><span class="k">Entry</span><span class="mono">$0.004070</span></div>
+            <div><span class="k">Margin</span><span class="mono">$10.00</span></div>
+            <div><span class="k">Take profit</span><span class="mono">$0.004029</span></div>
+            <div><span class="k">Stop loss</span><span class="mono">$0.004151</span></div>
+            <div><span class="k">Now</span><span class="mono">$0.004070</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono "><strong>+$0.00</strong> · +0.0%</span></div>
+          </div>
+          <div class="card-foot">
+            <span>Opened 10:31 AM</span>
+            <span class="status"><span class="dot"></span>Running</span>
+          </div>
+        </div>
+
       </div>
 
       <!-- Extremes -->
@@ -605,7 +636,7 @@
           </thead>
           <tbody>            <tr>
               <td class="pair">Warning shorts</td>
-              <td class="mono">1</td>
+              <td class="mono">2</td>
               <td class="mono">3</td>
               <td class="mono">1W – 2L</td>
               <td class="mono pos">+$1.81</td>
@@ -626,7 +657,7 @@
            and P&L. Newest first. -->
       <div class="section-head">
         <h2>Trade history — this book</h2>
-        <span class="count">5 trades taken · newest first · strategy, margin, entry, result &amp; P&amp;L for each trade</span>
+        <span class="count">6 trades taken · newest first · strategy, margin, entry, result &amp; P&amp;L for each trade</span>
       </div>
       <div class="table-wrap history-wrap">
         <table>
@@ -645,6 +676,18 @@
             </tr>
           </thead>
           <tbody>            <tr data-cat="open">
+              <td class="mono">26 Oct, 10:31 AM</td>
+              <td class="pair">ANKR/USDT</td>
+              <td><span class="side short">SHORT</span></td>
+              <td>Warning shorts<small style="display:block;color:var(--ink-faint)">STRONG</small></td>
+              <td class="mono">$10.00</td>
+              <td class="mono">$0.004070</td>
+              <td><span class="badge open">OPEN</span></td>
+              <td class="reason">Still running</td>
+              <td class="mono">7m so far</td>
+              <td class="mono ">+$0.00<small style="display:block;color:var(--ink-faint)">so far, incl. banked</small></td>
+            </tr>
+            <tr data-cat="open">
               <td class="mono">26 Oct, 9:50 AM</td>
               <td class="pair">TON/USDT</td>
               <td><span class="side short">SHORT</span></td>
@@ -653,7 +696,7 @@
               <td class="mono">$1.6000</td>
               <td><span class="badge open">OPEN</span></td>
               <td class="reason">Still running</td>
-              <td class="mono">47m so far</td>
+              <td class="mono">48m so far</td>
               <td class="mono ">+$0.00<small style="display:block;color:var(--ink-faint)">so far, incl. banked</small></td>
             </tr>
             <tr data-cat="tp">
@@ -701,7 +744,7 @@
               <td class="mono">$0.1752</td>
               <td><span class="badge open">TP1 BANKED</span></td>
               <td class="reason">TP1 banked - last 10% runner still running</td>
-              <td class="mono">20h 18m so far</td>
+              <td class="mono">20h 19m so far</td>
               <td class="mono pos">+$17.61<small style="display:block;color:var(--ink-faint)">so far, incl. banked</small></td>
             </tr></tbody>
         </table>
@@ -931,5 +974,5 @@
         });
       })();
     </script>
-  <script>(function(){var BAKED=1792993032;function chk(){fetch('data.json?x='+Date.now(),{cache:'no-store'}).then(function(r){return r.json();}).then(function(d){if(d&&d.stamp&&d.stamp>BAKED){location.replace(location.pathname+'?v='+d.stamp);}}).catch(function(){});}setInterval(chk,10000);})();</script></body>
+  <script>(function(){var BAKED=1792993096;function chk(){fetch('data.json?x='+Date.now(),{cache:'no-store'}).then(function(r){return r.json();}).then(function(d){if(d&&d.stamp&&d.stamp>BAKED){location.replace(location.pathname+'?v='+d.stamp);}}).catch(function(){});}setInterval(chk,10000);})();</script></body>
 </html>
