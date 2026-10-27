@@ -390,7 +390,7 @@
         <div class="stamp">
           <span class="live-dot"></span><strong>4 trades running · Live</strong><br />
           <span class="live-status" id="live-status">Connecting to live prices…</span><br />
-          <span id="last-updated">Last snapshot · Tue 27 Oct 2026, 7:46 PM PKT</span>
+          <span id="last-updated">Last snapshot · Tue 27 Oct 2026, 7:47 PM PKT</span>
         </div>
       </header>
 
@@ -428,12 +428,12 @@
         </div>
         <div class="stat">
           <div class="label">Free balance</div>
-          <div class="value mono">$1093.99</div>
+          <div class="value mono">$1108.62</div>
           <div class="detail">cash not in trades</div>
         </div>
         <div class="stat">
           <div class="label">Margin running</div>
-          <div class="value mono">$36.00</div>
+          <div class="value mono">$24.75</div>
           <div class="detail">across 4 open trades</div>
         </div>
         <div class="stat">
@@ -454,7 +454,7 @@
           <div class="u-label">Total unrealized P&amp;L — open trades</div>
           <div class="u-detail" id="unrealized-detail">Updating from live prices… · realized +$6.80</div>
         </div>
-        <div class="u-value mono pos" id="total-unrealized">+$2.53</div>
+        <div class="u-value mono neg" id="total-unrealized">−$0.37</div>
       </section>
 
       <!-- SL summary: aggregates only. Per-trade SL detail and exit
@@ -520,7 +520,7 @@
               <td class="mono">$0.0119<small>runner</small></td>
               <td class="mono">$0.0124</td>
               <td class="mono">$1.00</td>
-              <td class="mono upnl pos">+$0.22<small>+21.8% on margin</small></td>
+              <td class="mono upnl pos">+$0.19<small>+19.4% on margin</small></td>
               <td class="mono">12:31 AM</td>
               <td><span class="status"><span class="dot"></span>TP1 banked · runner</span></td>
             </tr>
@@ -528,11 +528,11 @@
               <td class="pair">ASTER/USDT</td>
               <td><span class="side long">LONG</span></td>
               <td class="mono">$0.7122</td>
-              <td class="mono">$0.7102</td>
+              <td class="mono">$0.7100</td>
               <td class="mono">$0.7193</td>
               <td class="mono">$0.6980</td>
               <td class="mono">$12.50</td>
-              <td class="mono upnl neg">−$1.05<small>−8.4% on margin</small></td>
+              <td class="mono upnl neg">−$1.16<small>−9.3% on margin</small></td>
               <td class="mono">1:42 PM</td>
               <td><span class="status"><span class="dot"></span>Running</span></td>
             </tr>
@@ -540,13 +540,13 @@
               <td class="pair">DASH/USDT</td>
               <td><span class="side short">SHORT</span></td>
               <td class="mono">$54.68</td>
-              <td class="mono">$54.19</td>
-              <td class="mono">$54.13</td>
-              <td class="mono">$55.77</td>
-              <td class="mono">$12.50</td>
-              <td class="mono upnl pos">+$3.36<small>+26.9% on margin</small></td>
+              <td class="mono">$53.81</td>
+              <td class="mono">$52.49<small>runner</small></td>
+              <td class="mono">$54.68</td>
+              <td class="mono">$1.25</td>
+              <td class="mono upnl pos">+$0.60<small>+47.7% on margin</small></td>
               <td class="mono">7:12 PM</td>
-              <td><span class="status"><span class="dot"></span>Running</span></td>
+              <td><span class="status"><span class="dot"></span>TP1 banked · runner</span></td>
             </tr></tbody>
         </table>
       </div>
@@ -583,7 +583,7 @@
             <div><span class="k">Take profit</span><span class="mono">$0.0119</span><small>runner</small></div>
             <div><span class="k">Stop loss</span><span class="mono">$0.0124</span></div>
             <div><span class="k">Now</span><span class="mono">$0.0123</span></div>
-            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$0.22</strong> · +21.8%</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$0.19</strong> · +19.4%</span></div>
           </div>
           <div class="card-foot">
             <span>Opened 12:31 AM</span>
@@ -601,8 +601,8 @@
             <div><span class="k">Margin</span><span class="mono">$12.50</span></div>
             <div><span class="k">Take profit</span><span class="mono">$0.7193</span></div>
             <div><span class="k">Stop loss</span><span class="mono">$0.6980</span></div>
-            <div><span class="k">Now</span><span class="mono">$0.7102</span></div>
-            <div><span class="k">Unrealized P&amp;L</span><span class="mono neg"><strong>−$1.05</strong> · −8.4%</span></div>
+            <div><span class="k">Now</span><span class="mono">$0.7100</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono neg"><strong>−$1.16</strong> · −9.3%</span></div>
           </div>
           <div class="card-foot">
             <span>Opened 1:42 PM</span>
@@ -617,15 +617,15 @@
           </div>
           <div class="card-grid">
             <div><span class="k">Entry</span><span class="mono">$54.68</span></div>
-            <div><span class="k">Margin</span><span class="mono">$12.50</span></div>
-            <div><span class="k">Take profit</span><span class="mono">$54.13</span></div>
-            <div><span class="k">Stop loss</span><span class="mono">$55.77</span></div>
-            <div><span class="k">Now</span><span class="mono">$54.19</span></div>
-            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$3.36</strong> · +26.9%</span></div>
+            <div><span class="k">Margin</span><span class="mono">$1.25</span><small>of $12.50</small></div>
+            <div><span class="k">Take profit</span><span class="mono">$52.49</span><small>runner</small></div>
+            <div><span class="k">Stop loss</span><span class="mono">$54.68</span></div>
+            <div><span class="k">Now</span><span class="mono">$53.81</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$0.60</strong> · +47.7%</span></div>
           </div>
           <div class="card-foot">
             <span>Opened 7:12 PM</span>
-            <span class="status"><span class="dot"></span>Running</span>
+            <span class="status"><span class="dot"></span>TP1 banked · runner</span>
           </div>
         </div>
 
@@ -753,10 +753,10 @@
               <td>Warning shorts<small style="display:block;color:var(--ink-faint)">STRONG</small></td>
               <td class="mono">$12.50</td>
               <td class="mono">$54.68</td>
-              <td><span class="badge open">OPEN</span></td>
-              <td class="reason">Still running</td>
-              <td class="mono">34m so far</td>
-              <td class="mono pos">+$3.36<small style="display:block;color:var(--ink-faint)">so far, incl. banked</small></td>
+              <td><span class="badge open">TP1 BANKED</span></td>
+              <td class="reason">TP1 banked - last 10% runner still running</td>
+              <td class="mono">35m so far</td>
+              <td class="mono pos">+$3.97<small style="display:block;color:var(--ink-faint)">so far, incl. banked</small></td>
             </tr>
             <tr data-cat="open">
               <td class="mono">27 Oct, 1:42 PM</td>
@@ -767,8 +767,8 @@
               <td class="mono">$0.7122</td>
               <td><span class="badge open">OPEN</span></td>
               <td class="reason">Still running</td>
-              <td class="mono">6h 04m so far</td>
-              <td class="mono neg">−$1.05<small style="display:block;color:var(--ink-faint)">so far, incl. banked</small></td>
+              <td class="mono">6h 05m so far</td>
+              <td class="mono neg">−$1.16<small style="display:block;color:var(--ink-faint)">so far, incl. banked</small></td>
             </tr>
             <tr data-cat="tp">
               <td class="mono">27 Oct, 3:17 AM</td>
@@ -791,8 +791,8 @@
               <td class="mono">$0.0124</td>
               <td><span class="badge open">TP1 BANKED</span></td>
               <td class="reason">TP1 banked - last 10% runner still running</td>
-              <td class="mono">19h 15m so far</td>
-              <td class="mono pos">+$2.92<small style="display:block;color:var(--ink-faint)">so far, incl. banked</small></td>
+              <td class="mono">19h 16m so far</td>
+              <td class="mono pos">+$2.89<small style="display:block;color:var(--ink-faint)">so far, incl. banked</small></td>
             </tr>
             <tr data-cat="sl">
               <td class="mono">26 Oct, 11:37 PM</td>
@@ -1321,5 +1321,5 @@
         });
       })();
     </script>
-  <script>(function(){var BAKED=1793112377;function chk(){fetch('data.json?x='+Date.now(),{cache:'no-store'}).then(function(r){return r.json();}).then(function(d){if(d&&d.stamp&&d.stamp>BAKED){location.replace(location.pathname+'?v='+d.stamp);}}).catch(function(){});}setInterval(chk,10000);})();</script></body>
+  <script>(function(){var BAKED=1793112435;function chk(){fetch('data.json?x='+Date.now(),{cache:'no-store'}).then(function(r){return r.json();}).then(function(d){if(d&&d.stamp&&d.stamp>BAKED){location.replace(location.pathname+'?v='+d.stamp);}}).catch(function(){});}setInterval(chk,10000);})();</script></body>
 </html>
