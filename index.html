@@ -388,9 +388,9 @@
           <p class="sub">Open positions from a simulated $1,000 paper-trading account, marked against real market prices.</p>
         </div>
         <div class="stamp">
-          <span class="live-dot"></span><strong>2 trades running · Live</strong><br />
+          <span class="live-dot"></span><strong>1 trades running · Live</strong><br />
           <span class="live-status" id="live-status">Connecting to live prices…</span><br />
-          <span id="last-updated">Last snapshot · Sat 31 Oct 2026, 12:26 AM PKT</span>
+          <span id="last-updated">Last snapshot · Sat 31 Oct 2026, 12:27 AM PKT</span>
         </div>
       </header>
 
@@ -398,8 +398,8 @@
       <section class="scoreboard" aria-label="Account summary">
         <div class="stat">
           <div class="label">Record</div>
-          <div class="value mono">2W – 3L</div>
-          <div class="detail">5 closed trades</div>
+          <div class="value mono">2W – 4L</div>
+          <div class="detail">6 closed trades</div>
         </div>
         <div class="stat">
           <div class="label">Closed at TP</div>
@@ -408,7 +408,7 @@
         </div>
         <div class="stat">
           <div class="label">Closed at SL</div>
-          <div class="value mono neg">3</div>
+          <div class="value mono neg">4</div>
           <div class="detail">stop-loss exits</div>
         </div>
         <div class="stat">
@@ -423,18 +423,18 @@
         </div>
         <div class="stat">
           <div class="label">Total P&amp;L</div>
-          <div class="value mono neg">−$10.28</div>
+          <div class="value mono neg">−$25.97</div>
           <div class="detail">on a $1,000 start</div>
         </div>
         <div class="stat">
           <div class="label">Free balance</div>
-          <div class="value mono">$945.96</div>
+          <div class="value mono">$978.27</div>
           <div class="detail">cash not in trades</div>
         </div>
         <div class="stat">
           <div class="label">Margin running</div>
-          <div class="value mono">$37.50</div>
-          <div class="detail">across 2 open trades</div>
+          <div class="value mono">$2.50</div>
+          <div class="detail">across 1 open trades</div>
         </div>
         <div class="stat">
           <div class="label">Biggest win</div>
@@ -443,8 +443,8 @@
         </div>
         <div class="stat">
           <div class="label">Biggest loss</div>
-          <div class="value mono neg">−$7.00</div>
-          <div class="detail">LSK/USDT</div>
+          <div class="value mono neg">−$15.69</div>
+          <div class="detail">MAGIC/USDT</div>
         </div>
       </section>
 
@@ -452,9 +452,9 @@
       <section class="unrealized" id="unrealized-box" aria-label="Total unrealized profit and loss">
         <div>
           <div class="u-label">Total unrealized P&amp;L — open trades</div>
-          <div class="u-detail" id="unrealized-detail">Updating from live prices… · realized −$10.28</div>
+          <div class="u-detail" id="unrealized-detail">Updating from live prices… · realized −$25.97</div>
         </div>
-        <div class="u-value mono neg" id="total-unrealized">−$3.66</div>
+        <div class="u-value mono pos" id="total-unrealized">+$0.56</div>
       </section>
 
       <!-- SL summary: aggregates only. Per-trade SL detail and exit
@@ -463,9 +463,9 @@
       <section class="unrealized" aria-label="Stop-loss summary">
         <div>
           <div class="u-label">Stop-loss summary — all-time SL cost</div>
-          <div class="u-detail">Today (PKT): 0 SL exits · +$0.00 — all-time: 3 SL exits — by strategy: Gainers 2 · Early entry 1</div>
+          <div class="u-detail">Today (PKT): 1 SL exits · −$15.69 — all-time: 4 SL exits — by strategy: Gainers 2 · Early entry 1 · Old RSI-55 1</div>
         </div>
-        <div class="u-value mono neg">−$20.91</div>
+        <div class="u-value mono neg">−$36.60</div>
       </section>
 
       <!-- Mixed outcomes (user order 2026-10-25): trades cut in a loss
@@ -501,28 +501,16 @@
             </tr>
           </thead>
           <tbody id="open-rows">            <tr>
-              <td class="pair">MAGIC/USDT</td>
-              <td><span class="side long">LONG</span></td>
-              <td class="mono">$0.0834</td>
-              <td class="mono">$0.0814</td>
-              <td class="mono">$0.0842</td>
-              <td class="mono">$0.0817</td>
-              <td class="mono">$12.50</td>
-              <td class="mono upnl neg">−$8.99<small>−71.9% on margin</small></td>
-              <td class="mono">7:07 PM</td>
-              <td><span class="status"><span class="dot"></span>Running</span></td>
-            </tr>
-            <tr>
               <td class="pair">PROM/USDT</td>
               <td><span class="side long">LONG</span></td>
               <td class="mono">$5.6280</td>
-              <td class="mono">$5.6680</td>
-              <td class="mono">$5.6843</td>
-              <td class="mono">$5.5154</td>
-              <td class="mono">$25.00</td>
-              <td class="mono upnl pos">+$5.33<small>+21.3% on margin</small></td>
+              <td class="mono">$5.6700</td>
+              <td class="mono">$5.8531<small>runner</small></td>
+              <td class="mono">$5.6280</td>
+              <td class="mono">$2.50</td>
+              <td class="mono upnl pos">+$0.56<small>+22.4% on margin</small></td>
               <td class="mono">11:03 PM</td>
-              <td><span class="status"><span class="dot"></span>Running</span></td>
+              <td><span class="status"><span class="dot"></span>TP1 banked · runner</span></td>
             </tr></tbody>
         </table>
       </div>
@@ -531,39 +519,20 @@
       <div class="cards">
         <div class="card">
           <div class="card-top">
-            <span class="pair">MAGIC/USDT</span>
-            <span class="side long">LONG</span>
-          </div>
-          <div class="card-grid">
-            <div><span class="k">Entry</span><span class="mono">$0.0834</span></div>
-            <div><span class="k">Margin</span><span class="mono">$12.50</span><small>of $25.00</small></div>
-            <div><span class="k">Take profit</span><span class="mono">$0.0842</span></div>
-            <div><span class="k">Stop loss</span><span class="mono">$0.0817</span></div>
-            <div><span class="k">Now</span><span class="mono">$0.0814</span></div>
-            <div><span class="k">Unrealized P&amp;L</span><span class="mono neg"><strong>−$8.99</strong> · −71.9%</span></div>
-          </div>
-          <div class="card-foot">
-            <span>Opened 7:07 PM</span>
-            <span class="status"><span class="dot"></span>Running</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-top">
             <span class="pair">PROM/USDT</span>
             <span class="side long">LONG</span>
           </div>
           <div class="card-grid">
             <div><span class="k">Entry</span><span class="mono">$5.6280</span></div>
-            <div><span class="k">Margin</span><span class="mono">$25.00</span></div>
-            <div><span class="k">Take profit</span><span class="mono">$5.6843</span></div>
-            <div><span class="k">Stop loss</span><span class="mono">$5.5154</span></div>
-            <div><span class="k">Now</span><span class="mono">$5.6680</span></div>
-            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$5.33</strong> · +21.3%</span></div>
+            <div><span class="k">Margin</span><span class="mono">$2.50</span><small>of $25.00</small></div>
+            <div><span class="k">Take profit</span><span class="mono">$5.8531</span><small>runner</small></div>
+            <div><span class="k">Stop loss</span><span class="mono">$5.6280</span></div>
+            <div><span class="k">Now</span><span class="mono">$5.6700</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$0.56</strong> · +22.4%</span></div>
           </div>
           <div class="card-foot">
             <span>Opened 11:03 PM</span>
-            <span class="status"><span class="dot"></span>Running</span>
+            <span class="status"><span class="dot"></span>TP1 banked · runner</span>
           </div>
         </div>
 
@@ -582,8 +551,8 @@
         </div>
         <div class="extreme loss">
           <div class="label">Biggest loss</div>
-          <div class="amount mono">−$7.00</div>
-          <div class="who">LSK/USDT long — SL exit · 6m</div>
+          <div class="amount mono">−$15.69</div>
+          <div class="who">MAGIC/USDT long — SL exit · 5h 13m</div>
         </div>
       </div>
 
@@ -604,13 +573,6 @@
             </tr>
           </thead>
           <tbody>            <tr>
-              <td class="pair">Old RSI-55</td>
-              <td class="mono">1</td>
-              <td class="mono">1</td>
-              <td class="mono">1W – 0L</td>
-              <td class="mono pos">+$6.73</td>
-            </tr>
-            <tr>
               <td class="pair">RSI-55 scalp</td>
               <td class="mono">1</td>
               <td class="mono">0</td>
@@ -623,6 +585,13 @@
               <td class="mono">1</td>
               <td class="mono">0W – 1L</td>
               <td class="mono neg">−$6.91</td>
+            </tr>
+            <tr>
+              <td class="pair">Old RSI-55</td>
+              <td class="mono">0</td>
+              <td class="mono">2</td>
+              <td class="mono">1W – 1L</td>
+              <td class="mono neg">−$8.96</td>
             </tr>
             <tr>
               <td class="pair">Gainers</td>
@@ -665,22 +634,22 @@
               <td>RSI-55 scalp<small style="display:block;color:var(--ink-faint)">STRONG</small></td>
               <td class="mono">$25.00</td>
               <td class="mono">$5.6280</td>
-              <td><span class="badge open">OPEN</span></td>
-              <td class="reason">Still running</td>
-              <td class="mono">1h 23m so far</td>
-              <td class="mono pos">+$5.33<small style="display:block;color:var(--ink-faint)">so far, incl. banked</small></td>
+              <td><span class="badge open">TP1 BANKED</span></td>
+              <td class="reason">TP1 banked - last 10% runner still running</td>
+              <td class="mono">1h 24m so far</td>
+              <td class="mono pos">+$7.31<small style="display:block;color:var(--ink-faint)">so far, incl. banked</small></td>
             </tr>
-            <tr data-cat="open">
-              <td class="mono">30 Oct, 7:07 PM</td>
+            <tr data-cat="sl">
+              <td class="mono">30 Oct, 7:17 PM</td>
               <td class="pair">MAGIC/USDT</td>
               <td><span class="side long">LONG</span></td>
               <td>Old RSI-55<small style="display:block;color:var(--ink-faint)">STRONG</small></td>
               <td class="mono">$25.00</td>
               <td class="mono">$0.0834</td>
-              <td><span class="badge open">OPEN</span></td>
-              <td class="reason">Still running</td>
-              <td class="mono">5h 19m so far</td>
-              <td class="mono neg">−$15.24<small style="display:block;color:var(--ink-faint)">so far, incl. banked</small></td>
+              <td><span class="badge sl">SL</span></td>
+              <td class="reason">SL hit (-2.5%) — 5m candle closed below SL (STRONG candle-close rule)</td>
+              <td class="mono">5h 13m</td>
+              <td class="mono neg">−$15.69<small style="display:block;color:var(--ink-faint)">−62.8% on margin</small></td>
             </tr>
             <tr data-cat="tp">
               <td class="mono">30 Oct, 2:27 PM</td>
@@ -753,7 +722,7 @@
     <script>
       (function () {
         var LEVERAGE = 30;
-        var REALIZED = -10.28;
+        var REALIZED = -25.97;
         var REFRESH_MS = 10000;
         var MINUS = "\u2212";
 
@@ -969,5 +938,5 @@
         });
       })();
     </script>
-  <script>(function(){var BAKED=1793388390;function chk(){fetch('data.json?x='+Date.now(),{cache:'no-store'}).then(function(r){return r.json();}).then(function(d){if(d&&d.stamp&&d.stamp>BAKED){location.replace(location.pathname+'?v='+d.stamp);}}).catch(function(){});}setInterval(chk,10000);})();</script></body>
+  <script>(function(){var BAKED=1793388451;function chk(){fetch('data.json?x='+Date.now(),{cache:'no-store'}).then(function(r){return r.json();}).then(function(d){if(d&&d.stamp&&d.stamp>BAKED){location.replace(location.pathname+'?v='+d.stamp);}}).catch(function(){});}setInterval(chk,10000);})();</script></body>
 </html>
