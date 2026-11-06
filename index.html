@@ -388,9 +388,9 @@
           <p class="sub">Open positions from a simulated $1,000 paper-trading account, marked against real market prices.</p>
         </div>
         <div class="stamp">
-          <span class="live-dot"></span><strong>2 trades running · Live</strong><br />
+          <span class="live-dot"></span><strong>3 trades running · Live</strong><br />
           <span class="live-status" id="live-status">Connecting to live prices…</span><br />
-          <span id="last-updated">Last snapshot · Fri 6 Nov 2026, 6:07 PM PKT</span>
+          <span id="last-updated">Last snapshot · Fri 6 Nov 2026, 6:08 PM PKT</span>
         </div>
       </header>
 
@@ -428,13 +428,13 @@
         </div>
         <div class="stat">
           <div class="label">Free balance</div>
-          <div class="value mono">$908.75</div>
+          <div class="value mono">$883.75</div>
           <div class="detail">cash not in trades</div>
         </div>
         <div class="stat">
           <div class="label">Margin running</div>
-          <div class="value mono">$50.00</div>
-          <div class="detail">across 2 open trades</div>
+          <div class="value mono">$75.00</div>
+          <div class="detail">across 3 open trades</div>
         </div>
         <div class="stat">
           <div class="label">Biggest win</div>
@@ -454,7 +454,7 @@
           <div class="u-label">Total unrealized P&amp;L — open trades</div>
           <div class="u-detail" id="unrealized-detail">Updating from live prices… · realized −$41.24</div>
         </div>
-        <div class="u-value mono neg" id="total-unrealized">−$0.67</div>
+        <div class="u-value mono pos" id="total-unrealized">+$1.91</div>
       </section>
 
       <!-- SL summary: aggregates only. Per-trade SL detail and exit
@@ -523,6 +523,18 @@
               <td class="mono upnl neg">−$0.67<small>−2.7% on margin</small></td>
               <td class="mono">3:24 PM</td>
               <td><span class="status"><span class="dot"></span>Running</span></td>
+            </tr>
+            <tr>
+              <td class="pair">ZEC/USDT<small>just opened</small></td>
+              <td><span class="side long">LONG</span></td>
+              <td class="mono">$1,305.11</td>
+              <td class="mono">$1,309.60</td>
+              <td class="mono">$1,318.16</td>
+              <td class="mono">$1,279.01</td>
+              <td class="mono">$25.00</td>
+              <td class="mono upnl pos">+$2.58<small>+10.3% on margin</small></td>
+              <td class="mono">6:01 PM</td>
+              <td><span class="status"><span class="dot"></span>Running</span></td>
             </tr></tbody>
         </table>
       </div>
@@ -563,6 +575,25 @@
           </div>
           <div class="card-foot">
             <span>Opened 3:24 PM</span>
+            <span class="status"><span class="dot"></span>Running</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <span class="pair">ZEC/USDT</span>
+            <span class="side long">LONG</span>
+          </div>
+          <div class="card-grid">
+            <div><span class="k">Entry</span><span class="mono">$1,305.11</span></div>
+            <div><span class="k">Margin</span><span class="mono">$25.00</span></div>
+            <div><span class="k">Take profit</span><span class="mono">$1,318.16</span></div>
+            <div><span class="k">Stop loss</span><span class="mono">$1,279.01</span></div>
+            <div><span class="k">Now</span><span class="mono">$1,309.60</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono pos"><strong>+$2.58</strong> · +10.3%</span></div>
+          </div>
+          <div class="card-foot">
+            <span>Opened 6:01 PM</span>
             <span class="status"><span class="dot"></span>Running</span>
           </div>
         </div>
@@ -612,7 +643,7 @@
             </tr>
             <tr>
               <td class="pair">RSI-55 scalp</td>
-              <td class="mono">0</td>
+              <td class="mono">1</td>
               <td class="mono">3</td>
               <td class="mono">2W – 1L</td>
               <td class="mono pos">+$10.32</td>
@@ -647,7 +678,7 @@
            and P&L. Newest first. -->
       <div class="section-head">
         <h2>Trade history — this book</h2>
-        <span class="count">22 trades taken · newest first · strategy, margin, entry, result &amp; P&amp;L for each trade</span>
+        <span class="count">23 trades taken · newest first · strategy, margin, entry, result &amp; P&amp;L for each trade</span>
       </div>
       <div class="table-wrap history-wrap">
         <table>
@@ -665,7 +696,19 @@
               <th>P&amp;L</th>
             </tr>
           </thead>
-          <tbody>            <tr data-cat="tp">
+          <tbody>            <tr data-cat="open">
+              <td class="mono">06 Nov, 6:01 PM</td>
+              <td class="pair">ZEC/USDT</td>
+              <td><span class="side long">LONG</span></td>
+              <td>RSI-55 scalp<small style="display:block;color:var(--ink-faint)">STRONG</small></td>
+              <td class="mono">$25.00</td>
+              <td class="mono">$1,305.11</td>
+              <td><span class="badge open">OPEN</span></td>
+              <td class="reason">Still running</td>
+              <td class="mono">7m so far</td>
+              <td class="mono pos">+$2.58<small style="display:block;color:var(--ink-faint)">so far, incl. banked</small></td>
+            </tr>
+            <tr data-cat="tp">
               <td class="mono">06 Nov, 6:07 AM</td>
               <td class="pair">INJ/USDT</td>
               <td><span class="side long">LONG</span></td>
@@ -1156,5 +1199,5 @@
         });
       })();
     </script>
-  <script>(function(){var BAKED=1793970434;function chk(){fetch('data.json?x='+Date.now(),{cache:'no-store'}).then(function(r){return r.json();}).then(function(d){if(d&&d.stamp&&d.stamp>BAKED){location.replace(location.pathname+'?v='+d.stamp);}}).catch(function(){});}setInterval(chk,10000);})();</script></body>
+  <script>(function(){var BAKED=1793970495;function chk(){fetch('data.json?x='+Date.now(),{cache:'no-store'}).then(function(r){return r.json();}).then(function(d){if(d&&d.stamp&&d.stamp>BAKED){location.replace(location.pathname+'?v='+d.stamp);}}).catch(function(){});}setInterval(chk,10000);})();</script></body>
 </html>
