@@ -388,9 +388,9 @@
           <p class="sub">Open positions from a simulated $1,000 paper-trading account, marked against real market prices.</p>
         </div>
         <div class="stamp">
-          <span class="live-dot"></span><strong>4 trades running · Live</strong><br />
+          <span class="live-dot"></span><strong>3 trades running · Live</strong><br />
           <span class="live-status" id="live-status">Connecting to live prices…</span><br />
-          <span id="last-updated">Last snapshot · Sat 14 Nov 2026, 9:16 PM PKT</span>
+          <span id="last-updated">Last snapshot · Sat 14 Nov 2026, 9:17 PM PKT</span>
         </div>
       </header>
 
@@ -398,8 +398,8 @@
       <section class="scoreboard" aria-label="Account summary">
         <div class="stat">
           <div class="label">Record</div>
-          <div class="value mono">14W – 13L</div>
-          <div class="detail">32 closed trades</div>
+          <div class="value mono">14W – 14L</div>
+          <div class="detail">33 closed trades</div>
         </div>
         <div class="stat">
           <div class="label">Closed at TP</div>
@@ -408,7 +408,7 @@
         </div>
         <div class="stat">
           <div class="label">Closed at SL</div>
-          <div class="value mono neg">13</div>
+          <div class="value mono neg">14</div>
           <div class="detail">stop-loss exits</div>
         </div>
         <div class="stat">
@@ -423,18 +423,18 @@
         </div>
         <div class="stat">
           <div class="label">Total P&amp;L</div>
-          <div class="value mono neg">−$83.09</div>
+          <div class="value mono neg">−$113.77</div>
           <div class="detail">on a $1,000 start</div>
         </div>
         <div class="stat">
           <div class="label">Free balance</div>
-          <div class="value mono">$754.42</div>
+          <div class="value mono">$786.24</div>
           <div class="detail">cash not in trades</div>
         </div>
         <div class="stat">
           <div class="label">Margin running</div>
-          <div class="value mono">$150.00</div>
-          <div class="detail">across 4 open trades</div>
+          <div class="value mono">$75.00</div>
+          <div class="detail">across 3 open trades</div>
         </div>
         <div class="stat">
           <div class="label">Biggest win</div>
@@ -443,8 +443,8 @@
         </div>
         <div class="stat">
           <div class="label">Biggest loss</div>
-          <div class="value mono neg">−$29.56</div>
-          <div class="detail">APT/USDT</div>
+          <div class="value mono neg">−$30.68</div>
+          <div class="detail">AVAX/USDT</div>
         </div>
       </section>
 
@@ -452,9 +452,9 @@
       <section class="unrealized" id="unrealized-box" aria-label="Total unrealized profit and loss">
         <div>
           <div class="u-label">Total unrealized P&amp;L — open trades</div>
-          <div class="u-detail" id="unrealized-detail">Updating from live prices… · realized −$83.09</div>
+          <div class="u-detail" id="unrealized-detail">Updating from live prices… · realized −$113.77</div>
         </div>
-        <div class="u-value mono neg" id="total-unrealized">−$76.39</div>
+        <div class="u-value mono neg" id="total-unrealized">−$28.48</div>
       </section>
 
       <!-- SL summary: aggregates only. Per-trade SL detail and exit
@@ -463,9 +463,9 @@
       <section class="unrealized" aria-label="Stop-loss summary">
         <div>
           <div class="u-label">Stop-loss summary — all-time SL cost</div>
-          <div class="u-detail">Today (PKT): 1 SL exits · −$29.56 — all-time: 13 SL exits — by strategy: Old RSI-55 6 · RSI band longs 2 · Early entry 2 · Gainers 2 · Divergence buys 1</div>
+          <div class="u-detail">Today (PKT): 2 SL exits · −$60.24 — all-time: 14 SL exits — by strategy: Old RSI-55 6 · RSI band longs 3 · Early entry 2 · Gainers 2 · Divergence buys 1</div>
         </div>
-        <div class="u-value mono neg">−$191.53</div>
+        <div class="u-value mono neg">−$222.21</div>
       </section>
 
       <!-- Mixed outcomes (user order 2026-10-25): trades cut in a loss
@@ -516,11 +516,11 @@
               <td class="pair">LTC/USDT</td>
               <td><span class="side long">LONG</span></td>
               <td class="mono">$46.50</td>
-              <td class="mono">$45.61</td>
+              <td class="mono">$45.59</td>
               <td class="mono">$46.97</td>
               <td class="mono">$45.57</td>
               <td class="mono">$25.00</td>
-              <td class="mono upnl neg">−$14.35<small>−57.4% on margin</small></td>
+              <td class="mono upnl neg">−$14.68<small>−58.7% on margin</small></td>
               <td class="mono">7:28 PM</td>
               <td><span class="status"><span class="dot"></span>Running</span></td>
             </tr>
@@ -528,23 +528,11 @@
               <td class="pair">ADA/USDT</td>
               <td><span class="side long">LONG</span></td>
               <td class="mono">$0.1576</td>
-              <td class="mono">$0.1548</td>
+              <td class="mono">$0.1547</td>
               <td class="mono">$0.1592</td>
               <td class="mono">$0.1544</td>
-              <td class="mono">$50.00</td>
-              <td class="mono upnl neg">−$26.65<small>−53.3% on margin</small></td>
-              <td class="mono">7:37 PM</td>
-              <td><span class="status"><span class="dot"></span>Running</span></td>
-            </tr>
-            <tr>
-              <td class="pair">AVAX/USDT</td>
-              <td><span class="side long">LONG</span></td>
-              <td class="mono">$7.7140</td>
-              <td class="mono">$7.5320</td>
-              <td class="mono">$7.7911</td>
-              <td class="mono">$7.5597</td>
-              <td class="mono">$50.00</td>
-              <td class="mono upnl neg">−$35.39<small>−70.8% on margin</small></td>
+              <td class="mono">$25.00</td>
+              <td class="mono upnl neg">−$13.80<small>−55.2% on margin</small></td>
               <td class="mono">7:37 PM</td>
               <td><span class="status"><span class="dot"></span>Running</span></td>
             </tr></tbody>
@@ -582,8 +570,8 @@
             <div><span class="k">Margin</span><span class="mono">$25.00</span><small>of $50.00</small></div>
             <div><span class="k">Take profit</span><span class="mono">$46.97</span></div>
             <div><span class="k">Stop loss</span><span class="mono">$45.57</span></div>
-            <div><span class="k">Now</span><span class="mono">$45.61</span></div>
-            <div><span class="k">Unrealized P&amp;L</span><span class="mono neg"><strong>−$14.35</strong> · −57.4%</span></div>
+            <div><span class="k">Now</span><span class="mono">$45.59</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono neg"><strong>−$14.68</strong> · −58.7%</span></div>
           </div>
           <div class="card-foot">
             <span>Opened 7:28 PM</span>
@@ -598,30 +586,11 @@
           </div>
           <div class="card-grid">
             <div><span class="k">Entry</span><span class="mono">$0.1576</span></div>
-            <div><span class="k">Margin</span><span class="mono">$50.00</span></div>
+            <div><span class="k">Margin</span><span class="mono">$25.00</span><small>of $50.00</small></div>
             <div><span class="k">Take profit</span><span class="mono">$0.1592</span></div>
             <div><span class="k">Stop loss</span><span class="mono">$0.1544</span></div>
-            <div><span class="k">Now</span><span class="mono">$0.1548</span></div>
-            <div><span class="k">Unrealized P&amp;L</span><span class="mono neg"><strong>−$26.65</strong> · −53.3%</span></div>
-          </div>
-          <div class="card-foot">
-            <span>Opened 7:37 PM</span>
-            <span class="status"><span class="dot"></span>Running</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-top">
-            <span class="pair">AVAX/USDT</span>
-            <span class="side long">LONG</span>
-          </div>
-          <div class="card-grid">
-            <div><span class="k">Entry</span><span class="mono">$7.7140</span></div>
-            <div><span class="k">Margin</span><span class="mono">$50.00</span></div>
-            <div><span class="k">Take profit</span><span class="mono">$7.7911</span></div>
-            <div><span class="k">Stop loss</span><span class="mono">$7.5597</span></div>
-            <div><span class="k">Now</span><span class="mono">$7.5320</span></div>
-            <div><span class="k">Unrealized P&amp;L</span><span class="mono neg"><strong>−$35.39</strong> · −70.8%</span></div>
+            <div><span class="k">Now</span><span class="mono">$0.1547</span></div>
+            <div><span class="k">Unrealized P&amp;L</span><span class="mono neg"><strong>−$13.80</strong> · −55.2%</span></div>
           </div>
           <div class="card-foot">
             <span>Opened 7:37 PM</span>
@@ -644,8 +613,8 @@
         </div>
         <div class="extreme loss">
           <div class="label">Biggest loss</div>
-          <div class="amount mono">−$29.56</div>
-          <div class="who">APT/USDT long — SL exit · 1h 33m</div>
+          <div class="amount mono">−$30.68</div>
+          <div class="who">AVAX/USDT long — SL exit · 1h 33m</div>
         </div>
       </div>
 
@@ -673,13 +642,6 @@
               <td class="mono pos">+$17.02</td>
             </tr>
             <tr>
-              <td class="pair">RSI band longs</td>
-              <td class="mono">3</td>
-              <td class="mono">6</td>
-              <td class="mono">4W – 2L</td>
-              <td class="mono neg">−$6.90</td>
-            </tr>
-            <tr>
               <td class="pair">Early entry</td>
               <td class="mono">0</td>
               <td class="mono">3</td>
@@ -699,6 +661,13 @@
               <td class="mono">1</td>
               <td class="mono">0W – 1L</td>
               <td class="mono neg">−$17.50</td>
+            </tr>
+            <tr>
+              <td class="pair">RSI band longs</td>
+              <td class="mono">2</td>
+              <td class="mono">7</td>
+              <td class="mono">4W – 3L</td>
+              <td class="mono neg">−$37.58</td>
             </tr>
             <tr>
               <td class="pair">Old RSI-55</td>
@@ -747,6 +716,18 @@
               <td class="mono pos">+$13.50<small style="display:block;color:var(--ink-faint)">+27.0% on margin</small></td>
             </tr>
             <tr data-cat="sl">
+              <td class="mono">14 Nov, 7:47 PM</td>
+              <td class="pair">AVAX/USDT</td>
+              <td><span class="side long">LONG</span></td>
+              <td>RSI band longs<small style="display:block;color:var(--ink-faint)">STRONG</small></td>
+              <td class="mono">$50.00</td>
+              <td class="mono">$7.7140</td>
+              <td><span class="badge sl">SL</span></td>
+              <td class="reason">SL hit (-2.4%) — 5m candle closed below SL (STRONG candle-close rule)</td>
+              <td class="mono">1h 33m</td>
+              <td class="mono neg">−$30.68<small style="display:block;color:var(--ink-faint)">−61.4% on margin</small></td>
+            </tr>
+            <tr data-cat="sl">
               <td class="mono">14 Nov, 7:37 PM</td>
               <td class="pair">APT/USDT</td>
               <td><span class="side long">LONG</span></td>
@@ -779,20 +760,8 @@
               <td class="mono">$0.1576</td>
               <td><span class="badge open">OPEN</span></td>
               <td class="reason">Still running</td>
-              <td class="mono">1h 39m so far</td>
-              <td class="mono neg">−$26.65<small style="display:block;color:var(--ink-faint)">so far, incl. banked</small></td>
-            </tr>
-            <tr data-cat="open">
-              <td class="mono">14 Nov, 7:37 PM</td>
-              <td class="pair">AVAX/USDT</td>
-              <td><span class="side long">LONG</span></td>
-              <td>RSI band longs<small style="display:block;color:var(--ink-faint)">STRONG</small></td>
-              <td class="mono">$50.00</td>
-              <td class="mono">$7.7140</td>
-              <td><span class="badge open">OPEN</span></td>
-              <td class="reason">Still running</td>
-              <td class="mono">1h 39m so far</td>
-              <td class="mono neg">−$35.39<small style="display:block;color:var(--ink-faint)">so far, incl. banked</small></td>
+              <td class="mono">1h 40m so far</td>
+              <td class="mono neg">−$26.30<small style="display:block;color:var(--ink-faint)">so far, incl. banked</small></td>
             </tr>
             <tr data-cat="open">
               <td class="mono">14 Nov, 7:28 PM</td>
@@ -803,8 +772,8 @@
               <td class="mono">$46.50</td>
               <td><span class="badge open">OPEN</span></td>
               <td class="reason">Still running</td>
-              <td class="mono">1h 48m so far</td>
-              <td class="mono neg">−$26.85<small style="display:block;color:var(--ink-faint)">so far, incl. banked</small></td>
+              <td class="mono">1h 49m so far</td>
+              <td class="mono neg">−$27.18<small style="display:block;color:var(--ink-faint)">so far, incl. banked</small></td>
             </tr>
             <tr data-cat="tp">
               <td class="mono">10 Nov, 5:47 AM</td>
@@ -1177,7 +1146,7 @@
     <script>
       (function () {
         var LEVERAGE = 30;
-        var REALIZED = -83.09;
+        var REALIZED = -113.77;
         var REFRESH_MS = 10000;
         var MINUS = "\u2212";
 
@@ -1393,5 +1362,5 @@
         });
       })();
     </script>
-  <script>(function(){var BAKED=1794672977;function chk(){fetch('data.json?x='+Date.now(),{cache:'no-store'}).then(function(r){return r.json();}).then(function(d){if(d&&d.stamp&&d.stamp>BAKED){location.replace(location.pathname+'?v='+d.stamp);}}).catch(function(){});}setInterval(chk,10000);})();</script></body>
+  <script>(function(){var BAKED=1794673035;function chk(){fetch('data.json?x='+Date.now(),{cache:'no-store'}).then(function(r){return r.json();}).then(function(d){if(d&&d.stamp&&d.stamp>BAKED){location.replace(location.pathname+'?v='+d.stamp);}}).catch(function(){});}setInterval(chk,10000);})();</script></body>
 </html>
